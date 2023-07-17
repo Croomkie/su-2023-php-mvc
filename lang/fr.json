@@ -1,0 +1,66 @@
+{
+    "company": "EmmaPierre",
+    "title": "Emma Pierre",
+    "home": "Accueil",
+    "shopbar.circle.shop": "Panier",
+    "shopbar.circle.paid": "Paiement",
+    "shopbar.circle.confirm": "Confirmation",
+    "title.my.shop": "Votre panier",
+    "title.my.recap": "Récapitulatif",
+    "button.nextstep": "Etape suivante",
+    "button.filter": "Filtres",
+    "text.shop.total" : "Sous-total (6 articles):",
+    "title.my.suggestion" : "Produits liés au articles",
+    "text.shop.suggestion.card.title": "Lorem ipsum dolor sit.",
+    "text.shop.suggestion.card.product" : "Voir le produit",
+    "title.contact" : "CONTACT",
+    "button.contact.send" : "Envoyer",
+    "title.payement.creditcard": "Informations sur la carte de crédit",
+    "text.payement.form.number": "Numéro de carte",
+    "text.payement.form.cvv" : "CVV",
+    "text.payement.form.incumbent" : "Nom du titulaire de la carte",
+    "text.payement.form.expire" : "Date expiration",
+    "title.payement.delivery": "Adresse de livraison",
+    "title.payement.mode.delivery" : "Choix du mode de livraison",
+    "text.payement.delivery.form.name" : "Nom prénom",
+    "text.payement.delivery.form.adresse" : "Adresse",
+    "text.payement.delivery.form.tel" : "Téléphone",
+    "text.payement.delivery.form.ville" : "Ville",
+    "text.payement.delivery.form.cp" : "Code postale",
+    "title.payement.recap": "Récapitulatif de la commande",
+  
+  
+  
+  
+  
+    
+    "title.home.jewelry": "Bijoux",
+    "button.home.shop" : "Acheter maintenant",
+    "text.home.rock.precious": "Précieuses",
+    "text.home.rock.sassy": "Impertinentes",
+    "text.home.rock.unique": "Unique",
+    "text.home.rock.color": "Couleur",
+    "text.home.caroussel.text": "Bracelet Family Black en tourmaline 15 cm",
+    "text.home.caroussel.price": "50 €",
+    "text.home.span.precious" : "Découvrir maintenant",
+    "title.home.items.spotlight": "Découvrez nos articles à la une",
+    "text.home.notice": "“Le service à la clientèle était exceptionnel.”",
+    "text.home.notice.name": "Eva Smith",
+    "text.home.notice.com": "- General Manager",
+    "title.home.value": "Nos valeurs",
+    "text.home.value": "Découvrez nos bijoux faits à la main dans notre atelier lyonnais en éditions limitées, voire même en unique exemplaire pour une exclusivité totale. Chaque matière est choisie avec soin pour garantir une qualité exceptionnelle et pour vous offrir une touche unique qui vous distinguera. Opter pour l'artisanat, c'est contribuer au maintien du savoir-faire et de l'emploi en France. Nous sommes fiers de vous proposer des bijoux de haute qualité, fabriqués avec passion et  expertise. Merci de votre soutien !",
+    "text.home.presentation.header": "\"Je fabrique tous mes bijoux dans mon atelier lyonnais à la main et en éditions limitées pour garantir une certaine exclusivité. Certains d'entre eux sont même uniques en leur genre.\"",
+  
+  
+  
+    "menu.product":"Produits",
+    "menu.presentation":"Presentation",
+    "menu.contact":"Contact",
+    "menu.blog":"Blog",
+  
+  
+  
+    "legal": "Mentions Légales",
+    "cgv": "Conditions générales de ventes",
+    "follow" : "Suivez nous :"
+  }

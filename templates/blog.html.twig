@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-translate="title"></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@100;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+    />
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <link rel="stylesheet" href="../dist/output.css" />
+  <link rel="shortcut icon" href="../images/logo/emma-pierre-logo-blanc.png" />
+  </head>
+
+  <body class="bg-nude-100 font-Jost">
+    <div class="mx-4 lg:mx-[200px] md:mx-[100px]">
+      <div id="navbar"></div>
+
+      <!----------------------------------------- Titre  --------------------------->
+
+      <div class="titre text-center mb-10 pt-20">
+        <h1 class="text-blue-100 text-3xl font-bold">BLOG</h1>
+      </div>
+
+      <!----------------------------------------- 1er Bloc --------------------------->
+
+      <div class="relative mb-20">
+        <img
+          class="w-full md:hidden h-auto rounded-xl"
+          src="../images/Imageblog.png"
+          alt=""
+        />
+
+        <div class="md:flex justify-center">
+          <img
+            class="w-[1200px] md:block hidden h-auto rounded-xl"
+            src="../images/dekstop-bloc1-blog.png"
+            alt=""
+          />
+        </div>
+        <div
+          class="absolute md:hidden inset-0 flex items-center justify-center"
+        >
+          <div class="text-center">
+            <h2 class="text-nude-100">Emma Pierre</h2>
+            <p class="text-nude-100 text-[16px] font-semibold mb-2 uppercase">
+              Lorem ipsum dolor sit amet consectetur
+            </p>
+            <button class="text-blue-100 bg-nude-100 px-4 py-2 rounded-[10px]">
+              Les nouveautés
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!----------------------------------------- Sous-titre  --------------------------->
+      <div class="md:block hidden mb-5">
+        <h1 class="text-blue-100 ml-20 text-2xl">Les nouveautés</h1>
+      </div>
+
+      <div class="flex md:flex-row md:justify-around flex-col">
+        <!----------------------------------------- 2eme Bloc --------------------------->
+        <div class="flex justify-center mt-10">
+          <div class="flex flex-col shadow-lg rounded-xl">
+            <div class="relative h-[304px]">
+              <img
+                class="w-full h-full object-cover rounded-t-xl"
+                src="../images/unsplash2.png"
+                alt=""
+              />
+              <div
+                class="absolute top-0 left-0 bg-blue-100 text-nude-100 px-4 py-1 rounded-lg m-4 z-10"
+              >
+                A la une
+              </div>
+            </div>
+            <div class="pl-4 pb-2 pr-12 max-w-[300px]">
+              <p class="text-[19px] mt-4">04/04/2023</p>
+              <p class="text-[16px] mt-2">
+                Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit
+                amet consectetur.Lorem ipsum dolor sit amet consectetur.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!----------------------------------------- 3eme Bloc --------------------------->
+        <div class="flex justify-center mt-10">
+          <div class="flex flex-col shadow-lg rounded-xl">
+            <div class="relative h-[304px]">
+              <img
+                class="w-full h-full object-cover rounded-t-xl"
+                src="../images/unsplash3.png"
+                alt=""
+              />
+              <div
+                class="absolute top-0 left-0 bg-blue-100 text-nude-100 px-4 py-1 rounded-lg m-4 z-10"
+              >
+                A la une
+              </div>
+            </div>
+            <div class="pl-4 pb-2 pr-12 max-w-[300px]">
+              <p class="text-[19px] mt-4">04/04/2023</p>
+              <p class="text-[16px] mt-2">
+                Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit
+                amet consectetur.Lorem ipsum dolor sit amet consectetur.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!----------------------------------------- 4eme Bloc --------------------------->
+        <div class="flex justify-center mt-10">
+          <div class="flex flex-col shadow-lg rounded-xl">
+            <div class="relative h-[304px]">
+              <img
+                class="w-full h-full object-cover rounded-t-xl"
+                src="../images/unsplash.png"
+                alt=""
+              />
+              <div
+                class="absolute top-0 left-0 bg-blue-100 text-nude-100 px-4 py-1 rounded-lg m-4 z-10"
+              >
+                A la une
+              </div>
+            </div>
+            <div class="pl-4 pb-2 pr-12 max-w-[300px]">
+              <p class="text-[19px] mt-4">04/04/2023</p>
+              <p class="text-[16px] mt-2">
+                Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit
+                amet consectetur.Lorem ipsum dolor sit amet consectetur.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer"></div>
+  </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(function () {
+      $("#navbar").load("navbar.html");
+    });
+
+    $(function () {
+      $("#footer").load("footer.html");
+    });
+  </script>
+</html>

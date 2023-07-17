@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-translate="title"></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@100;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+    />
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <link rel="stylesheet" href="../dist/output.css" />
+    <script src="../js/flowbite.min.js"></script>
+  <link rel="shortcut icon" href="../images/logo/emma-pierre-logo-blanc.png" />
+
+  </head>
+
+  <body class="bg-nude-100 font-Jost">
+    <div class="mx-4 lg:mx-[200px] md:mx-[100px]">
+      <div class="mb-36" id="navbar"></div>
+
+      <!-- Titre de la page -->
+      <div class="titre text-center mb-10">
+        <h1 class="text-blue-100 text-3xl font-bold">PRÉCIEUSES</h1>
+        <p class="text-blue-100 font-bold">
+          Découvrez nos collection de pierres précieuses :
+        </p>
+      </div>
+
+      <!-- Bulles Navigation  -->
+      <div
+        class="flex flex-wrap md:gap-x-20 justify-center gap-x-4 gap-y-4 md:flex-nowrap"
+      >
+        <a
+          href="precieuse.html#family"
+          class="w-5/12 flex justify-center flex-col gap-y-2 items-center"
+        >
+          <img
+            src="../images/images/photo9.jpeg"
+            alt="images"
+            class="h-full w-full rounded-full object-cover"
+          />
+          <p class="text-blue-100 font-semibold text-base uppercase">FAMILY</p>
+        </a>
+
+        <a
+          href="precieuse.html#trilogy"
+          class="w-5/12 flex flex-col gap-y-2 items-center"
+        >
+          <img
+            src="../images/images/photo8.jpeg"
+            alt="images"
+            class="h-full w-full rounded-full object-cover"
+          />
+          <p class="text-blue-100 font-semibold text-base uppercase">TRILOGY</p>
+        </a>
+        <a
+          href="precieuse.html#rana"
+          class="w-5/12 flex flex-col gap-y-2 items-center"
+        >
+          <img
+            src="../images/images/photo7.jpeg"
+            alt="images"
+            class="h-full w-full rounded-full object-cover"
+          />
+          <p class="text-blue-100 font-semibold text-base uppercase">RANA</p>
+        </a>
+        <a
+          href="precieuse.html#pearl"
+          class="w-5/12 flex flex-col gap-y-2 items-center"
+        >
+          <img
+            src="../images/images/photo6.jpeg"
+            alt="images"
+            class="h-full w-full rounded-full object-cover"
+          />
+          <p class="text-blue-100 font-semibold text-base uppercase">PEARL</p>
+        </a>
+      </div>
+
+      <!-------------------------------------------- Filtres Produits  -------------------------------------------->
+
+      <div class="flex md:block justify-center mt-24 font-bold">
+        <button
+          id="dropdownDefault"
+          data-dropdown-toggle="dropdown"
+          type="button"
+          class="group relative h-12 w-48 overflow-hidden rounded-lg bg-blue-100 text-lg shadow"
+        >
+          <div
+            class="absolute inset-0 w-3 bg-corail-50 transition-all duration-[600ms] ease-out group-hover:w-full"
+          ></div>
+          <!-- md:w-1/2 text-nude-100 bg-blue-100 px-[7px] md:px-3 md:py-4 py-[10px] rounded-3xl mb-20 -->
+          <span
+            class="relative text-nude-100 group-hover:text-blue-100"
+            data-translate="button.filter"
+          ></span>
+        </button>
+
+        <!-- Dropdown menu -->
+        <div
+          id="dropdown"
+          class="z-10 hidden w-56 p-3 bg-white rounded-lg shadow dark:bg-gray-700"
+        >
+          <h6 class="mb-3 text-sm font-medium text-gray-900 dark:text-white">
+            Category
+          </h6>
+          <ul class="space-y-2 text-sm" aria-labelledby="dropdownDefault">
+            <li class="flex items-center">
+              <input
+                id="logitech"
+                type="checkbox"
+                value=""
+                checked
+                class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+              />
+
+              <label
+                for="logitech"
+                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"
+              >
+                Boucles d'oreilles (97)
+              </label>
+            </li>
+
+            <li class="flex items-center">
+              <input
+                id="msi"
+                type="checkbox"
+                value=""
+                checked
+                class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+              />
+
+              <label
+                for="msi"
+                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"
+              >
+                Bracelets (97)
+              </label>
+            </li>
+
+            <li class="flex items-center">
+              <input
+                id="bosch"
+                type="checkbox"
+                value=""
+                checked
+                class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+              />
+
+              <label
+                for="bosch"
+                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"
+              >
+                Colliers (176)
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Caroussel FAMILY  -->
+      <a href="produit.html">
+        <div class="flex flex-col gap-y-2 mt-6">
+          <p id="family" class="font-extrabold text-blue-100 text-2xl">
+            FAMILY
+          </p>
+          <p class="font-extrabold text-gris-300 text-sm">BRACELET</p>
+          <div
+            class="caroussel"
+            data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": true }'
+          >
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo4.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Bracelet Family Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo2.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Bracelet Family Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo4.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Bracelet Family Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo4.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Bracelet Family Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo4.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Bracelet Family Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Caroussel Colliers FAMILY-->
+      <a href="produit.html">
+        <div class="flex flex-col gap-y-2 mt-10">
+          <p class="font-extrabold text-gris-300 text-sm">COLLIERS</p>
+          <div
+            class="caroussel"
+            data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": true }'
+          >
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo4.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Bracelet Family Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo2.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Bracelet Family Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo4.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Bracelet Family Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo4.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Bracelet Family Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo4.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Bracelet Family Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Caroussel TRILOGY  -->
+      <a href="produit.html">
+        <div class="flex flex-col gap-y-2 mt-10">
+          <p id="trilogy" class="font-extrabold text-blue-100 text-2xl">
+            TRILOGY
+          </p>
+          <p class="font-extrabold text-gris-300 text-sm">BRACELET</p>
+          <div
+            class="caroussel"
+            data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": true }'
+          >
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo4.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Bracelet TRILOGY Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo2.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Bracelet TRILOGY Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo4.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Bracelet TRILOGY Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo4.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Bracelet TRILOGY Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo2.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Collier TRILOGY Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Caroussel Colliers TRILOGY-->
+      <a href="produit.html">
+        <div class="flex flex-col gap-y-2 mt-10">
+          <p class="font-extrabold text-gris-300 text-sm">COLLIERS</p>
+          <div
+            class="caroussel"
+            data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": true }'
+          >
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo4.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Collier TRILOGY Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo2.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Collier TRILOGY Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo2.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Collier TRILOGY Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo4.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Collier TRILOGY Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo4.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Collier TRILOGY Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Caroussel RANA  -->
+      <a href="produit.html">
+        <div class="flex flex-col gap-y-2 mt-10">
+          <p id="rana" class="font-extrabold text-blue-100 text-2xl">RANA</p>
+          <p class="font-extrabold text-gris-300 text-sm">BOUCLES D'OREILLES</p>
+          <div
+            class="caroussel"
+            data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": true }'
+          >
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo4.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Bracelet RANA Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo2.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Bracelet RANA Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo4.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Bracelet RANA Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo4.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Bracelet RANA Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo2.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Collier RANA Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Caroussel Colliers RANA-->
+      <a href="produit.html">
+        <div class="flex flex-col gap-y-2 mt-10">
+          <p class="font-extrabold text-gris-300 text-sm">COLLIERS</p>
+          <div
+            class="caroussel"
+            data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": true }'
+          >
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo4.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Collier RANA Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo2.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Collier RANA Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo2.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Collier RANA Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo4.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Collier RANA Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo4.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Collier RANA Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Caroussel PEARL  -->
+      <a href="produit.html">
+        <div class="flex flex-col gap-y-2 mt-10">
+          <p id="pearl" class="font-extrabold text-blue-100 text-2xl">PEARL</p>
+          <p class="font-extrabold text-gris-300 text-sm">BOUCLES D'OREILLES</p>
+          <div
+            class="caroussel"
+            data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": true }'
+          >
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo4.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Bracelet RANA Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo2.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Bracelet PEARL Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo4.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Bracelet PEARL Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo4.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Bracelet PEARL Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo2.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Collier PEARL Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Caroussel Colliers PEARL-->
+      <a href="produit.html">
+        <div class="flex flex-col gap-y-2 mt-10">
+          <p class="font-extrabold text-gris-300 text-sm">COLLIERS</p>
+          <div
+            class="caroussel"
+            data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": true }'
+          >
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo4.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Collier PEARL Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo2.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Collier PEARL Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo2.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Collier PEARL Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo4.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Collier PEARL Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
+              <img
+                src="../images/images/photo4.jpeg"
+                alt="image"
+                class="rounded-t-xl object-cover w-full h-[300px]"
+              />
+              <div class="mt-4 mx-4 flex flex-col gap-y-4">
+                <p class="text-blue-100">
+                  Collier PEARL Black en tourmaline 15 cm
+                </p>
+                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div id="footer"></div>
+  </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(function () {
+      $("#navbar").load("navbar.html");
+    });
+
+    $(function () {
+      $("#footer").load("footer.html");
+    });
+  </script>
+</html>

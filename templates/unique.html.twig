@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-translate="title"></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@100;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+    />
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <link rel="stylesheet" href="../dist/output.css" />
+  <link rel="shortcut icon" href="../images/logo/emma-pierre-logo-blanc.png" />
+
+  </head>
+
+  <body class="bg-nude-100 font-Jost">
+    <div class="mx-4 lg:mx-[200px] md:mx-[100px]">
+      <div class="mb-36" id="navbar"></div>
+      <div class="titre text-center mb-10">
+        <h1 class="text-blue-100 text-3xl font-bold">UNIQUE</h1>
+      </div>
+    </div>
+    <section>
+      <div>
+        <div>
+          <p
+            class="flex justify-center text-center items-center bg-nude-300 p-[30px] text-blue-100 w-full text-[20px] mb-6"
+          >
+            Collection de bijoux en exemplaire limité. Que c’est bon de laisser
+            libre cours à ces immagination, ces créations uniques sont les
+            fruits de mes recherches constantes sur l’alliance entre formes et
+            couleurs pour créer un bijoux harmonieux mais original avec des
+            matières telles que cristal, pièrre dure, fine, corail, ... liste
+            non exhaustive. Comme leur nom l’indique, il sont souvent produit en
+            un seul exemple, donc premier arrivé, premier servi.
+          </p>
+        </div>
+        <div>
+          <p
+            class="mx-auto flex items-center justify-center text-center text-blue-100 font-semibold"
+          >
+            Pas de sous catégories dans cette collections, les produits seront
+            rajoutés au fur et à mesure de la production.
+          </p>
+        </div>
+      </div>
+    </section>
+    <div id="footer"></div>
+  </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(function () {
+      $("#navbar").load("navbar.html");
+    });
+
+    $(function () {
+      $("#footer").load("footer.html");
+    });
+  </script>
+</html>
