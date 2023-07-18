@@ -5,3 +5,5 @@ conf/*.ini
 .env.local
 /dist
 /node_modules
+.env
+package.json
