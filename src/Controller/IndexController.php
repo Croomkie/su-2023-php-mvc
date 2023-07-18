@@ -53,4 +53,10 @@ class IndexController extends AbstractController
   {
     return $this->twig->render('blog.html.twig');
   }
+
+  #[Route("/presentation", name: "presentation")]
+  public function presentation(): string
+  {
+    return $this->twig->render('presentation.html.twig');
+  }
 }
