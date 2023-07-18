@@ -21,6 +21,7 @@
   "require": {
     "symfony/dotenv": "^6.2",
     "twig/twig": "^3.6",
-    "psr/container": "^2.0"
+    "psr/container": "^2.0",
+    "symfony/asset": "^6.3"
   }
 }

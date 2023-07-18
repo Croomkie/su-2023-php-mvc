@@ -1,0 +1,62 @@
+{
+    "company": "EmmaPierre",
+    "title": "Emma Pierre",
+    "home": "Home",
+    "shopbar.circle.shop": "Cart",
+    "shopbar.circle.paid": "Payment",
+    "shopbar.circle.confirm": "Confirmation",
+    "title.my.shop": "Your cart",
+    "title.my.recap": "Recap",
+    "button.nextstep": "Next step",
+    "button.filter": "Filter",
+    "text.shop.total" : "Subtotal (6 items):",
+    "title.my.suggestion" : "Related products",
+    "text.shop.suggestion.card.title": "Lorem ipsum dolor sit.",
+    "text.shop.suggestion.card.product" : "See product",
+    "title.contact" : "CONTACT",
+    "button.contact.send" : "Send",
+    "title.payement.creditcard": "Credit card information",
+    "text.payement.form.number": "Card number",
+    "text.payement.form.cvv" : "CVV",
+    "text.payement.form.incumbent" : "Cardholder name",
+    "text.payement.form.expire" : "Expiration date",
+    "title.payement.delivery": "Delivery address",
+    "title.payement.mode.delivery" : "Delivery method",
+    "text.payement.delivery.form.name" : "Full name",
+    "text.payement.delivery.form.adresse" : "Address",
+    "text.payement.delivery.form.tel" : "Phone number",
+    "text.payement.delivery.form.ville" : "City",
+    "text.payement.delivery.form.cp" : "Postal code",
+    "title.payement.recap": "Order summary",
+  
+  
+  
+  
+  
+    
+    "title.home.jewelry": "Jewelry",
+    "button.home.shop" : "Shop now",
+    "text.home.rock.precious": "Precious",
+    "text.home.rock.sassy": "Sassy",
+    "text.home.rock.unique": "Unique",
+    "text.home.rock.color": "Color",
+    "text.home.caroussel.text": "Family Black bracelet in tourmaline 15 cm",
+    "text.home.caroussel.price": "50 €",
+    "text.home.span.precious" : "Discover now",
+    "title.home.items.spotlight": "Discover our featured items",
+    "text.home.notice": "“The customer service was exceptional.”",
+    "text.home.notice.name": "Eva Smith",
+    "text.home.notice.com": "- Financial Director",
+    "title.home.value": "Our values",
+    "text.home.value": "Discover our handmade jewelry in our Lyon workshop, in limited editions or even as unique pieces for complete exclusivity. Each material is carefully selected to ensure exceptional quality and to offer you a unique touch that will distinguish you. Choosing craftsmanship means contributing to the maintenance of know-how and employment in France. We are proud to offer you high-quality jewelry, made with passion and expertise. Thank you for your support!",
+    "text.home.presentation.header": "\"I make all my jewelry by hand in my Lyon workshop in limited editions to ensure a certain exclusivity. Some of them are even one of a kind.\"",
+  
+     "menu.product":"Products",
+    "menu.presentation":"Presentation",
+    "menu.contact":"Contact",
+    "menu.blog":"Blog",
+  
+    "legal" : "Legal Notices",
+    "cgv" : "General Sales Conditions",
+    "follow" : "Follow us:"
+  }
