@@ -5,3 +5,4 @@ conf/*.ini
 .env.local
 /public/dist
 /node_modules
+.env
