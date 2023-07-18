@@ -48,7 +48,7 @@ $twig = new Environment($loader, [
 ]);
 
 $twig->addFunction(new \Twig\TwigFunction('asset', function ($asset) {
-  return '/public/' . $asset;
+  return '/' . $asset;
 }));
 
 $serviceContainer = new Container();
