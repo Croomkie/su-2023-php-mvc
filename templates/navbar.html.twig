@@ -1,15 +1,41 @@
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <link rel="stylesheet" href="{{ asset('dist/output.css') }}" />
-  <title data-translate="title"></title>
-</head>
+<div class="mt-1 mb-10 ">
+    <!----------------------------------------- Navbar Dekstop -------------------------- -->
+    <nav
+      class="fixed w-full top-0 right-0 z-50 flex items-center justify-around bg-nude-100 py-4 border-b border-transparent transition-all duration-450 z-1">
+      <a href="index.html"><img class="flex-none w-[69px]" src="../images/logo/logo_emma_pierre.png" href="index.html"
+          alt="Logo" /></a>
+      <div class="md:flex hidden items-center mt-1">
+        <a href="index.html" class="text-blue-100 block hover:text-corail-100 px-3 py-2 rounded-md"
+          data-translate="home">
 
-<body>
-  <div class="mt-1 mb-10 ">
-    <!----------------------------------------- Navbar Dekstop --------------------------->
+        </a>
+        <span class="w-[1px] h-[13px] border-l border-blue-100"> </span>
+        <div class="dropdown px-3 text-blue-100">
+          <label tabindex="0" class="btn m-1 hover:text-corail-100" data-translate="menu.product"></label>
+          <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 rounded-lg">
+            <li><a class="hover:text-corail-100" href="precieuse.html" data-translate="text.home.rock.precious"></a>
+            </li>
+            <li><a class="hover:text-corail-100" href="impertinentes.html" data-translate="text.home.rock.sassy"></a>
+            </li>
+            <li><a class="hover:text-corail-100" href="unique.html" data-translate="text.home.rock.unique"></a></li>
+            <li><a class="hover:text-corail-100" href="Couleur.html" data-translate="text.home.rock.color"></a></li>
+          </ul>
+        </div>
+        <span class="w-[1px] h-[13px] border-l border-blue-100"> </span>
+        <a href="presentation.html" class="text-blue-100 block hover:text-corail-100 px-3 py-2 rounded-md"
+          data-translate="menu.presentation"></a>
+        <span class="w-[1px] h-[13px] border-l border-blue-100"> </span>
+        <a href="contact.html" class="text-blue-100 block hover:text-corail-100 px-3 py-2 rounded-md"></a>
+        <span class="w-[1px] h-[13px] border-l border-blue-100"> </span>
+        <a href="blog.html" class="text-blue-100 block hover:text-corail-100 px-3 py-2 rounded-md"
+          data-translate="menu.blog">
+
+        </a>
+      </div>
+
+
+
+      <div class="flex gap-2 items-center">
         <!-- coeur -->
         <a href="/">
           <svg class="w-[30px] rounded-full bg-blue-300 fill-current text-nude-100 p-[3px]" viewBox="0 0 20 20"
@@ -20,7 +46,7 @@
         </a>
 
         <!-- valise -->
-        <a href="/panier">
+        <a href="panier.html">
           <svg class="w-[30px] rounded-full bg-blue-300 fill-current text-nude-100 p-[3px]" viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg">
             <path
@@ -48,9 +74,7 @@
         </div>
       </div>
 
-      <!----------------------------------------- Navbar Mobile --------------------------->
-      <!----------------------------------------- Navbar Mobile --------------------------->
-
+      <!----------------------------------------- Navbar Mobile ------------------------- -->
       <div class="md:hidden">
         <!-- burger menu -->
         <svg id="burger-menu" class="w-[30px] fill-current text-blue-300 cursor-pointer"
@@ -61,41 +85,24 @@
 
         <!-- Liens du menu -->
         <div id="mobile-menu" class="absolute left-0 w-full bg-blue-100 p-4 text-center mt-3">
-          <a href="/" class="text-nude-100 hover:text-corail-100 block px-3 py-2 rounded-md">Accueil</a>
+          <a href="index.html" class="text-nude-100 hover:text-corail-100 block px-3 py-2 rounded-md">Accueil</a>
           <div class="dropdown px-3 text-nude-100">
             <label tabindex="0" class="btn m-1 hover:text-corail-100">Produits</label>
             <ul tabindex="0"
               class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 rounded-lg text-blue-100">
-              <li><a class="hover:text-corail-100" href="/precieuse">Précieuses</a></li>
-              <li><a class="hover:text-corail-100" href="/impertinentes">impertinentes</a></li>
-              <li><a class="hover:text-corail-100" href="/unique">Unique</a></li>
-              <li><a class="hover:text-corail-100" href="/Couleur">Couleur</a></li>
+              <li><a class="hover:text-corail-100" href="precieuse.html">Précieuses</a></li>
+              <li><a class="hover:text-corail-100" href="impertinentes.html">impertinentes</a></li>
+              <li><a class="hover:text-corail-100" href="unique.html">Unique</a></li>
+              <li><a class="hover:text-corail-100" href="Couleur.html">Couleur</a></li>
             </ul>
           </div>
-          <a href="/presentation"
+          <a href="presentation.html"
             class="text-nude-100 hover:text-corail-100 block px-3 py-2 rounded-md">Presentation</a>
-          <a href="/contact" class="text-nude-100 hover:text-corail-100 block px-3 py-2 rounded-md">Contact</a>
-          <a href="/blog" class="text-nude-100 hover:text-corail-100 block px-3 py-2 rounded-md">
+          <a href="contact.html" class="text-nude-100 hover:text-corail-100 block px-3 py-2 rounded-md">Contact</a>
+          <a href="blog.html" class="text-nude-100 hover:text-corail-100 block px-3 py-2 rounded-md">
             Blog
           </a>
         </div>
       </div>
     </nav>
   </div>
-<script src="{{asset('lang/language.js')}}"></script>
-  <!-- Vous pouvez ajouter ce script pour faire fonctionner le menu mobile -->
-  <script>
-    const btn = document.querySelector("#burger-menu");
-    const menu = document.querySelector("#mobile-menu");
-
-    // Add the "hidden" class to the menu element by default
-    menu.classList.add("hidden");
-
-    btn.addEventListener("click", () => {
-      const expanded = btn.getAttribute("aria-expanded") === "true" || false;
-      btn.setAttribute("aria-expanded", !expanded);
-      menu.classList.toggle("hidden");
-    });
-  </script>
-</body>
-</html>
