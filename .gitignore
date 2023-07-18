@@ -3,5 +3,5 @@ vendor/
 conf/*.ini
 .vscode/
 .env.local
-/dist
+/public/dist
 /node_modules
