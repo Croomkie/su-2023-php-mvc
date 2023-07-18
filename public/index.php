@@ -1,6 +1,13 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
+if (
+  php_sapi_name() !== 'cli' && // Environnement d'exécution != console
+  preg_match('/\.(ico|png|jpg|jpeg|css|js|gif|json)$/', $_SERVER['REQUEST_URI'])
+) {
+  return false;
+}
+
 // Initialisation de certaines choses
 use App\Controller\ContactController;
 use App\Controller\IndexController;
@@ -40,14 +47,20 @@ $twig = new Environment($loader, [
   'cache' => __DIR__ . '/../var/twig/',
 ]);
 
+$twig->addFunction(new \Twig\TwigFunction('asset', function ($asset) {
+  return '/public/' . $asset;
+}));
+
 $serviceContainer = new Container();
 $serviceContainer
   ->set(Environment::class, $twig)
   ->set(PDO::class, $pdo);
 
-// Appeler un routeur pour lui transférer la requête
+// Appeler un routeur pour lui transférer la requêt
+
 $router = new Router($serviceContainer);
 $router->registerRoutes();
+
 
 try {
   $router->execute($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
