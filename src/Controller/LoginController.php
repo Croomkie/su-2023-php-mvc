@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Routing\Attribute\Route;
 use PDO;
 use App\Model\User;
+use App\Routing\Attribute\Authorize;
 
 class LoginController extends AbstractController
 {
@@ -18,6 +19,13 @@ class LoginController extends AbstractController
     public function registerPage()
     {
         return $this->twig->render('register.html.twig');
+    }
+
+    #[Authorize('Admin')]
+    #[Route('/board', name: "board", httpMethod: "GET")]
+    public function board()
+    {
+        return $this->twig->render('board_admin.html.twig');
     }
 
     #[Route('/logout', name: "logout", httpMethod: "GET")]
@@ -51,7 +59,7 @@ class LoginController extends AbstractController
 
         return $this->twig->render('login.html.twig', ['inscription' => $inscription]);
     }
-    
+
     #[Route(path: '/signIn', name: 'signIn', httpMethod: "POST")]
     public function signIn()
     {
