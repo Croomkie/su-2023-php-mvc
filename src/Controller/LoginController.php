@@ -9,23 +9,24 @@ use App\Routing\Attribute\Authorize;
 
 class LoginController extends AbstractController
 {
+
     #[Route("/login", name: "loginPage", httpMethod: "GET")]
     public function login()
     {
-        return $this->twig->render('login.html.twig');
+        $this->renderTemplate('login.html.twig');
     }
 
     #[Route('/registerPage', name: "registerPage", httpMethod: "GET")]
     public function registerPage()
     {
-        return $this->twig->render('register.html.twig');
+        $this->renderTemplate('register.html.twig');
     }
 
     #[Authorize('Admin')]
     #[Route('/board', name: "board", httpMethod: "GET")]
     public function board()
     {
-        return $this->twig->render('board_admin.html.twig');
+        $this->renderTemplate('board_admin.html.twig');
     }
 
     #[Route('/logout', name: "logout", httpMethod: "GET")]
@@ -80,13 +81,15 @@ class LoginController extends AbstractController
             $error = 'Le mot de passe ou le pseudo indiqué est erronée';
             return $this->twig->render('login.html.twig', ['error' => $error]);
         }
-
-        /* Si c'est un Admin TODO */ else {
-            /* On stocke en session les infos du user connecté */
+        else{
             unset($user->password);
             $_SESSION['user'] = $user;
 
-            return $this->twig->render('board_admin.html.twig');
+            if ($user->Role == User::userRole) {
+                $this->renderTemplate('index.html.twig');
+            } elseif ($user->Role == User::adminRole) {
+                $this->renderTemplate('board_admin.html.twig');
+            }
         }
     }
 }

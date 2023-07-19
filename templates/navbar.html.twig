@@ -31,14 +31,15 @@
           data-translate="menu.blog">
 
         </a>
-            <span class="w-[1px] h-[13px] border-l border-blue-100"> </span>
-        <a href="/login" data-translate="menu.connexion" class="text-blue-100 block hover:text-corail-100 px-3 py-2 rounded-md">
 
-        </a>
+    <span class="w-[1px] h-[13px] border-l border-blue-100"> </span>
+            {% if isUserLoggedIn %}
+              <a href="/logout" class="text-blue-100 block hover:text-corail-100 px-3 py-2 rounded-md">Déconnexion</a>
+              {% else %}
+            <a href="/login" data-translate="menu.connexion" class="text-blue-100 block hover:text-corail-100 px-3 py-2 rounded-md"> </a>
+              {% endif %}
       </div>
-
-
-
+      
       <div class="flex gap-2 items-center">
         <!-- coeur -->
         <a href="/">
@@ -97,6 +98,7 @@
               <li><a class="hover:text-corail-100" href="/precieuse">Précieuses</a></li>
               <li><a class="hover:text-corail-100" href="/impertinentes">impertinentes</a></li>
               <li><a class="hover:text-corail-100" href="/unique">Unique</a></li>
+            
               <li><a class="hover:text-corail-100" href="/Couleur">Couleur</a></li>
             </ul>
           </div>
@@ -106,9 +108,15 @@
           <a href="/blog" class="text-nude-100 hover:text-corail-100 block px-3 py-2 rounded-md">
             Blog
           </a>
-            <a href="/login" data-translate="menu.connexion" class="text-nude-100 hover:text-corail-100 block px-3 py-2 rounded-md">
+
+            {% if isUserLoggedIn %}
+              <a href="/logout" class="text-nude-100 hover:text-corail-100 block px-3 py-2 rounded-md">Déconnexion</a>
+              {% else %}
+              <a href="/login" data-translate="menu.connexion" class="text-nude-100 hover:text-corail-100 block px-3 py-2 rounded-md">
             
-          </a>
+              </a>
+              {% endif %}
+          
         </div>
       </div>
     </nav>

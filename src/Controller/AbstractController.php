@@ -17,6 +17,18 @@ abstract class AbstractController
     $this->pdo = $this->connexion();
   }
 
+  public function renderTemplate($template, $variables = null)
+  {
+    // Check session status
+    $isUserLoggedIn = isset($_SESSION['user']);
+
+    // Add isUserLoggedIn to the variables array
+    $variables['isUserLoggedIn'] = $isUserLoggedIn;
+
+    // Render Twig template
+    echo $this->twig->render($template, $variables);
+  }
+
   private function connexion()
   {
     // Connexion à la DB

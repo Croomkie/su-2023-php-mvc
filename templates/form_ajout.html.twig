@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="{{ asset('dist/output.css') }}" />
+  <link rel="shortcut icon" href="../images/logo/emma-pierre-logo-blanc.png" />
+  <title>Admin</title>
+	</head>
+	<body>
+  <div class="mx-4 lg:mx-[200px] md:mx-[100px] mb-36" id="navbar">{% include 'navbar.html.twig' %}</div>
+<h1 class="text-center">Tableau de bord Admin</h1>
+<form>
+  <div class="mb-4 w-60">
+    <label for="name" class="block text-gray-700 font-bold mb-2">Nom:</label>
+    <input type="text" id="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Entrer le nom">
+  </div>
+  <div class="mb-4">
+    <label for="description" class="block text-gray-700 font-bold mb-2">Description:</label>
+    <textarea id="description" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Entrer la description"></textarea>
+  </div>
+  <div class="mb-4">
+    <label for="color" class="block text-gray-700 font-bold mb-2">Couleur:</label>
+    <input type="text" id="color" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Entrer la couleur">
+  </div>
+  <div class="mb-4">
+    <label for="image" class="block text-gray-700 font-bold mb-2">Image:</label>
+    <input type="text" id="image" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Entrer l'image">
+  </div>
+  <div class="mb-4">
+    <label for="price" class="block text-gray-700 font-bold mb-2">Prix:</label>
+    <input type="text" id="price" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Entrer le prix">
+  </div>
+  <div class="mb-4">
+    <label for="category" class="block text-gray-700 font-bold mb-2">Catégorie ID:</label>
+    <input type="text" id="category" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Entrer l'ID de la catégorie">
+  </div>
+  <div class="flex justify-center">
+    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
+  </div>
+</form>
+</body>
