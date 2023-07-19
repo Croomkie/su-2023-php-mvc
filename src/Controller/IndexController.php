@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Routing\Attribute\Route;
+use App\Routing\Attribute\Authorize;
 
 class IndexController extends AbstractController
 {

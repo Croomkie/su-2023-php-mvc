@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Routing\Attribute\Route;
 use PDO;
+use App\Model\User;
 
 class LoginController extends AbstractController
 {
@@ -25,21 +26,24 @@ class LoginController extends AbstractController
         session_destroy();
         return $this->twig->render('login.html.twig');
     }
+
     #[Route(path: '/register', name: 'register', httpMethod: "POST")]
     public function register()
     {
         $userName = $_POST['_username'];
         $password = $_POST['_password'];
+        $role = User::userRole;
 
         // Hashage du mot de passe
         $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
         /* Préparation de la requête */
-        $query = "INSERT INTO clients (nom, motDePasse) VALUES (:nom, :motDePasse)";
+        $query = "INSERT INTO clients (nom, motDePasse, Role) VALUES (:nom, :motDePasse, :Role)";
         $statement = $this->pdo->prepare($query);
 
         $statement->bindParam(':nom', $userName);
         $statement->bindParam(':motDePasse', $passwordHash);
+        $statement->bindParam(':Role', $role);
 
         $statement->execute();
 
@@ -47,7 +51,7 @@ class LoginController extends AbstractController
 
         return $this->twig->render('login.html.twig', ['inscription' => $inscription]);
     }
-
+    
     #[Route(path: '/signIn', name: 'signIn', httpMethod: "POST")]
     public function signIn()
     {
