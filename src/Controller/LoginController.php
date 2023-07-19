@@ -51,6 +51,7 @@ class LoginController extends AbstractController
 
         return $this->twig->render('login.html.twig', ['inscription' => $inscription]);
     }
+    
     #[Route(path: '/signIn', name: 'signIn', httpMethod: "POST")]
     public function signIn()
     {

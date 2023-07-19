@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
+session_start();
+
 if (
   php_sapi_name() !== 'cli' && // Environnement d'exécution != console
   preg_match('/\.(ico|png|jpg|jpeg|css|js|gif|json)$/', $_SERVER['REQUEST_URI'])
