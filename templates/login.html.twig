@@ -14,17 +14,18 @@
 			body {
 				font-family: Arial, sans-serif;
 			}
-
 			.container {
 				width: 300px;
 				margin: 200px auto;
-				padding: 20px;
+				padding: 40px;
 				border: 1px solid #ccc;
 				background-color: #f4f4f4;
+				border-radius : 10px;
 			}
 
 			h2 {
 				text-align: center;
+				padding-bottom: 20px;
 			}
 
 			label {
@@ -37,19 +38,25 @@
 				width: 100%;
 				padding: 7px;
 				margin-bottom: 10px;
+				border-radius: 10px;
 			}
 
 			input[type="submit"] {
 				width: 100%;
 				padding: 10px;
-				background-color: #4CAF50;
-				color: #fff;
+				background-color: #E9DBC1;
+				color: #18515C;
 				border: none;
 				cursor: pointer;
+				border-radius : 10px;
+				transition: background-color 0.8s ease;
 			}
 
 			input[type="submit"]:hover {
-				background-color: #45a049;
+				border : 1px solid #18515C;
+				border-radius : 10px;
+			  	background-color: #fff;
+				transition: all .8s;
 			}
 			.error-message {
 				color: red;
@@ -58,27 +65,31 @@
 			}
 			
 			.good-message {
-			color: green;
+			color: ;
 			padding: 10px;
 			}
 
 			a.register-link {
-  				display: inline-block;
+  				display: block;
   				text-align: center;
   				margin-top: 10px;
 				margin-bottom: 10px;
   				padding: 10px;
-  				color: #fff;
-  				background-color: #4CAF50;
+  				color: #18515C;
+  				background-color: #E9DBC1;
   				text-decoration: none;
   				border: none;
   				width: 50%;
   				cursor: pointer;
-  				transition: background-color 0.3s ease;
+  				transition: background-color 0.8s ease;
+				border-radius : 10px;
 			}		
 
 			a.register-link:hover {
-			  background-color: #45a049;
+				border : 1px solid #18515C;
+				border-radius : 10px;
+			  	background-color: #fff;
+				transition: all .8s;
 			}
 		</style>
 	</head>

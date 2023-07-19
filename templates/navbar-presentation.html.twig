@@ -163,3 +163,16 @@
         </div>
       </nav>
     </div>
+    <script>
+    const btn = document.querySelector("#burger-menu");
+    const menu = document.querySelector("#mobile-menu");
+
+    // Add the "hidden" class to the menu element by default
+    menu.classList.add("hidden");
+
+    btn.addEventListener("click", () => {
+      const expanded = btn.getAttribute("aria-expanded") === "true" || false;
+      btn.setAttribute("aria-expanded", !expanded);
+      menu.classList.toggle("hidden");
+    });
+  </script>
