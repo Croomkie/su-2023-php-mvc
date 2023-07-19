@@ -60,4 +60,16 @@ class IndexController extends AbstractController
   {
     return $this->twig->render('presentation.html.twig');
   }
+
+  #[Route("/paiement", name: "paiement")]
+  public function paiement(): string
+  {
+    return $this->twig->render('paiement.html.twig');
+  }
+
+  #[Route("/confirmation", name: "confirmation")]
+  public function confirmation(): string
+  {
+    return $this->twig->render('confirmation.html.twig');
+  }
 }

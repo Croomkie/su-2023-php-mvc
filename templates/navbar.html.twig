@@ -2,7 +2,7 @@
     <!----------------------------------------- Navbar Dekstop -------------------------- -->
     <nav
       class="fixed w-full top-0 right-0 z-50 flex items-center justify-around bg-nude-100 py-4 border-b border-transparent transition-all duration-450 z-1">
-      <a href="/"><img class="flex-none w-[69px]" src="../images/logo/logo_emma_pierre.png" href="index.html"
+      <a href="/"><img class="flex-none w-[69px]" src="../images/logo/logo_emma_pierre.png" href="/"
           alt="Logo" /></a>
       <div class="md:flex hidden items-center mt-1">
         <a href="/" class="text-blue-100 block hover:text-corail-100 px-3 py-2 rounded-md"
@@ -113,3 +113,16 @@
       </div>
     </nav>
   </div>
+  <script>
+    const btn = document.querySelector("#burger-menu");
+    const menu = document.querySelector("#mobile-menu");
+
+    // Add the "hidden" class to the menu element by default
+    menu.classList.add("hidden");
+
+    btn.addEventListener("click", () => {
+      const expanded = btn.getAttribute("aria-expanded") === "true" || false;
+      btn.setAttribute("aria-expanded", !expanded);
+      menu.classList.toggle("hidden");
+    });
+  </script>

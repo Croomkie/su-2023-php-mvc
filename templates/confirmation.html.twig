@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-translate="title"></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <link rel="stylesheet" href="../dist/output.css" />
+  <link rel="shortcut icon" href="../images/logo/emma-pierre-logo-blanc.png" />
+</head>
+
+<body>
+    <main class="mx-4 lg:mx-[200px] md:mx-[100px] pt-2">
+        <header class="mb-28" id="navbar">{% include 'navbar.html.twig' %}</header>
+        <!-- Ligne étape commande -->
+        <div class="flex justify-center gap-4 relative mb-8 md:gap-60">
+            <div class="barre-horizontale"></div>
+            <div class="flex flex-col items-center mx-2">
+                <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center">
+                    <span class="text-nude-100 text-center text-lg">1</span>
+                </div>
+                <p class="text-center mt-2 font-Jost" data-translate="shopbar.circle.shop"></p>
+            </div>
+            <div class="flex flex-col items-center mx-2">
+                <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center">
+                    <span class="text-nude-100 text-center text-lg">2</span>
+                </div>
+                <p class="text-center mt-2 font-Jost" data-translate="shopbar.circle.paid"></p>
+            </div>
+            <div class="flex flex-col items-center mx-2">
+                <div class="bg-gris-100 w-16 h-16 rounded-full flex items-center justify-center">
+                    <span class="text-nude-100 text-center text-lg">3</span>
+                </div>
+                <p class="text-center mt-2 font-Jost" data-translate="shopbar.circle.confirm"></p>
+            </div>
+        </div>
+
+        <div class="md:flex md:justify-between md:gap-12">
+            <section class="md:w-full">
+                <!-- Infos pratiques -->
+                <div class="mb-8">
+                    <div class="mb-4">
+                        <h3 class="text-gris-300 font-Jost font-semibold">
+                            Informations paratiques
+                        </h3>
+                        <span class="underline-bar"></span>
+                    </div>
+                    <article class="text-center bg-nude-100 rounded-lg">
+                        <p class="font-semibold">Adresse :</p>
+                        <p>10 Avenue des Champs-Elysée, 69000, Lyon</p>
+                        <p class="font-semibold">Livré par :</p>
+                        <p>
+                            Mondial relay
+                            <span class="font-semibold text-blue-100">3,5€</span>
+                        </p>
+                        <p>Delais de livraison</p>
+                        <p>08/04/2023</p>
+                    </article>
+                </div>
+
+                <!-- Livraison info -->
+                <div class="mb-8">
+                    <div class="mb-4">
+                        <h3 class="text-gris-300 font-Jost font-semibold">
+                            Détails de la livraison
+                        </h3>
+                        <span class="underline-bar"></span>
+                    </div>
+
+                    <article class="text-center bg-nude-100 rounded-lg">
+                        <p class="font-semibold">Contact de l'organisme</p>
+                        <p>contact@EmmaPierre.com</p>
+                        <p>06XXXXXXXX</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Récapitulatif commande desktop -->
+            <div class="md:w-full">
+                <div class="mb-4">
+                    <h3 class="text-gris-300 font-Jost font-semibold" data-translate="title.payement.recap"></h3>
+                    <span class="underline-bar"></span>
+                </div>
+
+                <div class="md:w-full">
+                    <section class="font-Jost flex flex-col gap-4 bg-nude-100 p-4 rounded-lg mb-4">
+                        <article class="flex flex-col gap-4">
+                            <div class="flex items-center gap-4">
+                                <div>
+                                    <div class="flex gap-2">
+                                        <p class="font-Jost font-semibold text-xs">
+                                            Lorem ipsum dolor sit amet consectetur.
+                                        </p>
+                                        <p class="font-Jost font-semibold text-blue-200">x2</p>
+                                    </div>
+                                    <div class="flex gap-2 items-end">
+                                        <p class="font-Jost font-normal">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                        </p>
+                                        <p class="font-Jost font-semibold text-blue-200">25€</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="underline-bar-article"></span>
+                        </article>
+                        <article class="flex flex-col gap-4">
+                            <div class="flex items-center gap-4">
+                                <div>
+                                    <div class="flex gap-2">
+                                        <p class="font-Jost font-semibold text-xs">
+                                            Lorem ipsum dolor sit amet consectetur.
+                                        </p>
+                                        <p class="font-Jost font-semibold text-blue-200">x2</p>
+                                    </div>
+                                    <div class="flex gap-2 items-end">
+                                        <p class="font-Jost font-normal">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                        </p>
+                                        <p class="font-Jost font-semibold text-blue-200">25€</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="underline-bar-article"></span>
+                        </article>
+                        <article class="flex flex-col gap-4">
+                            <div class="flex items-center gap-4">
+                                <div>
+                                    <div class="flex gap-2">
+                                        <p class="font-Jost font-semibold text-xs">
+                                            Lorem ipsum dolor sit amet consectetur.
+                                        </p>
+                                        <p class="font-Jost font-semibold text-blue-200">x2</p>
+                                    </div>
+                                    <div class="flex gap-2 items-end">
+                                        <p class="font-normal">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                        </p>
+                                        <p class="font-semibold text-blue-200">25€</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="underline-bar-article"></span>
+                        </article>
+                        <article class="flex flex-col gap-1 mb-4 md:w-3/4 md:bg-nude-100 md:rounded-lg md:items-start">
+                            <div class="flex gap-2">
+                                <p class="font-semibold" data-translate="text.shop.total"></p>
+                                <p class="font-semibold text-blue-200">200€</p>
+                            </div>
+                        </article>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-10 mb-10">
+            <a href="/">
+                <button class="group relative h-12 w-48 overflow-hidden rounded-lg bg-blue-100 text-lg shadow">
+                    <div
+                        class="absolute inset-0 w-3 bg-nude-100 transition-all duration-[600ms] ease-out group-hover:w-full">
+                    </div>
+                    <!-- md:w-1/2 text-nude-100 bg-blue-100 px-[7px] md:px-3 md:py-4 py-[10px] rounded-3xl mb-20 -->
+                    <span class="relative text-nude-100 group-hover:text-blue-100">Valider et Payer</span>
+                </button>
+            </a>
+        </div>
+        <p class="text-center">
+            Merci d'avoir passé votre commande sur notre site. A bientot !
+        </p>
+    </main>
+
+    <footer class="md:md\:w-full">
+        {% include 'footer.html.twig' %}
+    </footer>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ <script src="{{asset('lang/language.js')}}"></script>
+</html>
+
+</html>
