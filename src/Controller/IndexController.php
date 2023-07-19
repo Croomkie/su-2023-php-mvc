@@ -75,6 +75,7 @@ class IndexController extends AbstractController
   }
 
   /* Form controller */
+  #[Authorize('Admin')]
   #[Route(path: '/addColor', name: 'addColor', httpMethod: "POST")]
   public function addColor()
   {
@@ -96,6 +97,7 @@ class IndexController extends AbstractController
     return $this->twig->render('.html.twig', ['message' => $message]);
   }
 
+  #[Authorize('Admin')]
   #[Route(path: '/updateColor/{id}', name: 'updateColor', httpMethod: "POST")]
   public function updateColor($id)
   {
@@ -118,6 +120,7 @@ class IndexController extends AbstractController
     return $this->twig->render('.html.twig', ['message' => $message]);
   }
 
+  #[Authorize('Admin')]
   #[Route(path: '/deleteColor/{id}', name: 'deleteColor', httpMethod: "POST")]
   public function deleteColor($id)
   {
@@ -137,6 +140,7 @@ class IndexController extends AbstractController
 
 
   /* Ajout de bijoux */
+  #[Authorize('Admin')]
   #[Route(path: '/addBijou', name: 'addBijou', httpMethod: "POST")]
   public function addJewel()
   {
@@ -166,6 +170,7 @@ class IndexController extends AbstractController
     return $this->twig->render('.html.twig', ['message' => $message]);
   }
 
+  #[Authorize('Admin')]
   #[Route(path: '/updateBijou/{id}', name: 'updateBijou', httpMethod: "POST")]
   public function updateJewel($id)
   {
@@ -196,6 +201,7 @@ class IndexController extends AbstractController
     return $this->twig->render('.html.twig', ['message' => $message]);
   }
 
+  #[Authorize('Admin')]
   #[Route(path: '/deleteBijou/{id}', name: 'deleteBijou', httpMethod: "POST")]
   public function deleteJewel($id)
   {
@@ -212,6 +218,7 @@ class IndexController extends AbstractController
     return $this->twig->render('.html.twig', ['message' => $message]);
   }
 
+  #[Authorize('Admin')]
   #[Route(path: '/recupererBijoux', name: 'recupererBijoux', httpMethod: "GET")]
   public function recupererBijoux()
   {
@@ -224,6 +231,7 @@ class IndexController extends AbstractController
     return $this->twig->render('afficherBijoux.html.twig', ['bijoux' => $bijoux]);
   }
 
+  #[Authorize('Admin')]
   #[Route(path: '/recupererCouleurs', name: 'recupererCouleurs', httpMethod: "GET")]
   public function recupererCouleurs()
   {
@@ -233,10 +241,12 @@ class IndexController extends AbstractController
     $statementCouleurs->execute();
     $couleurs = $statementCouleurs->fetchAll();
 
-    return $this->twig->render('afficherCouleurs.html.twig', ['couleurs' => $couleurs]);
+    // TODO Retourner la bonne view
+    return $this->twig->render('.html.twig', ['couleurs' => $couleurs]);
   }
 
   /* Ajouter une commande */
+  #[Authorize('Admin')]
   #[Route(path: '/ajouter-commande', name: 'ajouterCommande', httpMethod: "POST")]
   public function ajouterCommande()
   {
@@ -253,10 +263,12 @@ class IndexController extends AbstractController
     /* Exécution de la requête */
     $statement->execute();
 
-    return $this->twig->render('confirmationCommande.html.twig');
+    // TODO Retourner la bonne view
+    return $this->twig->render('.html.twig');
   }
 
   /* Récupérer une commande */
+  #[Authorize('Admin')]
   #[Route(path: '/recuperer-commande/{id}', name: 'recupererCommande', httpMethod: "GET")]
   public function recupererCommande($id)
   {
@@ -271,10 +283,12 @@ class IndexController extends AbstractController
     $statement->execute();
     $commande = $statement->fetch();
 
-    return $this->twig->render('afficherCommande.html.twig', ['commande' => $commande]);
+    // TODO Retourner la bonne view
+    return $this->twig->render('.html.twig', ['commande' => $commande]);
   }
 
   /* Récupérer toutes les commandes */
+  #[Authorize('Admin')]
   #[Route(path: '/recuperer-commandes', name: 'recupererCommandes', httpMethod: "GET")]
   public function recupererCommandes()
   {
@@ -286,10 +300,12 @@ class IndexController extends AbstractController
     $statement->execute();
     $commandes = $statement->fetchAll();
 
-    return $this->twig->render('afficherCommandes.html.twig', ['commandes' => $commandes]);
+    // TODO Retourner la bonne view
+    return $this->twig->render('.html.twig', ['commandes' => $commandes]);
   }
 
   /* Modifier une commande */
+  #[Authorize('Admin')]
   #[Route(path: '/modifier-commande/{id}', name: 'modifierCommande', httpMethod: "PUT")]
   public function modifierCommande($id)
   {
@@ -307,10 +323,12 @@ class IndexController extends AbstractController
     /* Exécution de la requête */
     $statement->execute();
 
-    return $this->twig->render('confirmationModificationCommande.html.twig');
+    // TODO Retourner la bonne view
+    return $this->twig->render('.html.twig');
   }
 
   /* Supprimer une commande */
+  #[Authorize('Admin')]
   #[Route(path: '/supprimer-commande/{id}', name: 'supprimerCommande', httpMethod: "DELETE")]
   public function supprimerCommande($id)
   {
@@ -324,13 +342,73 @@ class IndexController extends AbstractController
     /* Exécution de la requête */
     $statement->execute();
 
-    return $this->twig->render('confirmationSuppressionCommande.html.twig');
+    // TODO Retourner la bonne view
+    return $this->twig->render('.html.twig');
   }
 
+  #[Authorize('Admin')]
   #[Route("/produit", name: "produit")]
   public function produit(): string
   {
     return $this->twig->render('produit.html.twig');
+  }
+
+  #[Authorize('Admin')]
+  #[Route(path: '/ajouter-categorie', name: 'ajouterCategorie', httpMethod: "POST")]
+  public function ajouterCategorie()
+  {
+    /* Récupérer les informations de la catégorie depuis le formulaire */
+    $nomCategorie = $_POST['nom'];
+
+    /* Préparation de la requête */
+    $query = "INSERT INTO Categories (Nom) VALUES (:nom)";
+    $statement = $this->pdo->prepare($query);
+
+    /* Liaison des paramètres */
+    $statement->bindParam(':nom', $nomCategorie);
+
+    /* Exécution de la requête */
+    $statement->execute();
+
+    // TODO Retourner la bonne view
+    return $this->twig->render('.html.twig');
+  }
+
+  #[Authorize('Admin')]
+  #[Route(path: '/recuperer-categorie/{id}', name: 'recupererCategorie', httpMethod: "GET")]
+  public function recupererCategorie($id)
+  {
+    /* Préparation de la requête */
+    $query = "SELECT * FROM Categories WHERE CategorieID = :id";
+    $statement = $this->pdo->prepare($query);
+
+    /* Liaison des paramètres */
+    $statement->bindParam(':id', $id);
+
+    /* Exécution de la requête */
+    $statement->execute();
+    $categorie = $statement->fetch();
+
+    // TODO Retourner la bonne view
+    return $this->twig->render('.html.twig', ['categorie' => $categorie]);
+  }
+
+  #[Authorize('Admin')]
+  #[Route(path: '/supprimer-categorie/{id}', name: 'supprimerCategorie', httpMethod: "DELETE")]
+  public function supprimerCategorie($id)
+  {
+    /* Préparation de la requête */
+    $query = "DELETE FROM Categories WHERE CategorieID = :id";
+    $statement = $this->pdo->prepare($query);
+
+    /* Liaison des paramètres */
+    $statement->bindParam(':id', $id);
+
+    /* Exécution de la requête */
+    $statement->execute();
+
+    // TODO Retourner la bonne view
+    return $this->twig->render('.html.twig');
   }
 }
 
