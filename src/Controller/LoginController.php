@@ -67,10 +67,9 @@ class LoginController extends AbstractController
         if (empty($user) || !password_verify($password, $user->MotDePasse)) {
             $error = 'Le mot de passe ou le pseudo indiqué est erronée';
             return $this->twig->render('login.html.twig', ['error' => $error]);
-        } 
-        
-        /* Si c'est un Admin TODO */
-        else {
+        }
+
+        /* Si c'est un Admin TODO */ else {
             /* On stocke en session les infos du user connecté */
             unset($user->password);
             $_SESSION['user'] = $user;
