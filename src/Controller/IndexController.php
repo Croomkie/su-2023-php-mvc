@@ -33,7 +33,7 @@ class IndexController extends AbstractController
   #[Route("/couleur", name: "couleur")]
   public function couleur(): string
   {
-    return $this->twig->render('couleur.html.twig');
+    return $this->twig->render('Couleur.html.twig');
   }
 
   #[Route("/contact", name: "contact")]
