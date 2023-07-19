@@ -38,7 +38,7 @@ module.exports = {
           subTitle: "40px",
         },
         backgroundImage: {
-          'fil_ariane': "url('/images/fil/fil_mobile_blanc_1.svg')",
+          'fil_ariane': "url('public/images/fil/fil_mobile_blanc_1.svg')",
         }
       },
       fontFamily: {
