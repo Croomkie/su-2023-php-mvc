@@ -14,10 +14,11 @@ class BijouxController extends AbstractController
 
     /* Form controller */
     #[Route(path: '/formAjout', name: 'formAjout', httpMethod: "GET")]
-    public function formAjout(){
+    public function formAjout()
+    {
         $this->renderTemplate('form_ajout.html.twig');
     }
-    
+
     #[Authorize('Admin')]
     #[Route(path: '/addColor', name: 'addColor', httpMethod: "POST")]
     public function addColor()
@@ -166,7 +167,6 @@ class BijouxController extends AbstractController
         $this->renderTemplate('.html.twig', ['message' => $message]);
     }
 
-    #[Authorize('Admin')]
     #[Route(path: '/recupererBijoux', name: 'recupererBijoux', httpMethod: "GET")]
     public function recupererBijoux()
     {
@@ -176,9 +176,8 @@ class BijouxController extends AbstractController
         $statementBijoux->execute();
         $bijoux = $statementBijoux->fetchAll();
 
-
         // TODO Retourner la bonne view
-        $this->renderTemplate('afficherBijoux.html.twig', ['bijoux' => $bijoux]);
+        $this->renderTemplate('precieuse.html.twig', ['bijoux' => $bijoux]);
     }
 
     #[Authorize('Admin')]
@@ -363,4 +362,3 @@ class BijouxController extends AbstractController
 }
 
 //test
-
