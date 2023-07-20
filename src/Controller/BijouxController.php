@@ -10,14 +10,67 @@ use App\Routing\Attribute\Authorize;
 class BijouxController extends AbstractController
 {
 
-
+    /*--------------------------------------------- Ajout de bijoux --------------------------------------------*/
 
     /* Form controller */
+
+    #[Authorize('Admin')]
     #[Route(path: '/formAjout', name: 'formAjout', httpMethod: "GET")]
-    public function formAjout(){
-        $this->renderTemplate('form_ajout.html.twig');
+    public function formAjout()
+    {
+
+        /* Préparation de la requête */
+        $query = "SELECT * from categorie ";
+
+        $statement = $this->pdo->prepare($query);
+        $statement->execute();
+
+        // Fetch the results
+        $listCategories = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        /* Préparation de la requête */
+        $query = "SELECT id,nom from couleur ";
+
+        $statement = $this->pdo->prepare($query);
+        $statement->execute();
+
+        // Fetch the results
+        $listCouleur = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        $this->renderTemplate('form_ajout.html.twig',['listCategories' => $listCategories,'listCouleur' => $listCouleur ]);
     }
     
+    #[Authorize('Admin')]
+    #[Route(path: '/addBijoux', name: 'addBijoux', httpMethod: "POST")]
+    public function addJewel()
+    {
+        $jewelName = $_POST['jewelName'];
+        $description = $_POST['description'];
+        $price = $_POST['price'];
+        $image = $_POST['image'];
+        $categoryID = $_POST['categoryID'];
+        $colorID = $_POST['colorID'];
+
+        /* Préparation de la requête */
+        $query = "INSERT INTO bijoux (nom, description, prix, image, id_categorie, id_couleur) 
+        VALUES (:nom, :description, :prix, :image, :id_categorie, :id_couleur)";
+        $statement = $this->pdo->prepare($query);
+
+        $statement->bindParam(':nom', $jewelName);
+        $statement->bindParam(':description', $description);
+        $statement->bindParam(':prix', $price);
+        $statement->bindParam(':image', $image);
+        $statement->bindParam(':id_categorie', $categoryID);
+        $statement->bindParam(':id_couleur', $colorID);
+
+        $statement->execute();
+
+        $message = 'Le bijou a été ajouté avec succès';
+
+        // TODO Retourner la bonne view
+        $this->renderTemplate('board_admin.html.twig', ['message' => $message]);
+    }
+
     #[Authorize('Admin')]
     #[Route(path: '/addColor', name: 'addColor', httpMethod: "POST")]
     public function addColor()
@@ -26,7 +79,7 @@ class BijouxController extends AbstractController
         $description = $_POST['description'];
 
         /* Préparation de la requête */
-        $query = "INSERT INTO Couleurs (Nom, Description) VALUES (:nom, :description)";
+        $query = "INSERT INTO couleur (nom, description) VALUES (:nom, :description)";
         $statement = $this->pdo->prepare($query);
 
         $statement->bindParam(':nom', $colorName);
@@ -78,39 +131,6 @@ class BijouxController extends AbstractController
 
         $message = 'La couleur a été supprimée avec succès';
 
-
-        // TODO Retourner la bonne view
-        $this->renderTemplate('.html.twig', ['message' => $message]);
-    }
-
-
-    /* Ajout de bijoux */
-    #[Authorize('Admin')]
-    #[Route(path: '/addBijou', name: 'addBijou', httpMethod: "POST")]
-    public function addJewel()
-    {
-        $jewelName = $_POST['jewelName'];
-        $description = $_POST['description'];
-        $price = $_POST['price'];
-        $image = $_POST['image'];
-        $categoryID = $_POST['categoryID'];
-        $colorID = $_POST['colorID'];
-
-        /* Préparation de la requête */
-        $query = "INSERT INTO Bijoux (Nom, Description, Prix, Image, CatégorieID, CouleurID) 
-              VALUES (:nom, :description, :prix, :image, :categorieID, :couleurID)";
-        $statement = $this->pdo->prepare($query);
-
-        $statement->bindParam(':nom', $jewelName);
-        $statement->bindParam(':description', $description);
-        $statement->bindParam(':prix', $price);
-        $statement->bindParam(':image', $image);
-        $statement->bindParam(':categorieID', $categoryID);
-        $statement->bindParam(':couleurID', $colorID);
-
-        $statement->execute();
-
-        $message = 'Le bijou a été ajouté avec succès';
 
         // TODO Retourner la bonne view
         $this->renderTemplate('.html.twig', ['message' => $message]);
