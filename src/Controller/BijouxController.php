@@ -37,9 +37,9 @@ class BijouxController extends AbstractController
         // Fetch the results
         $listCouleur = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        $this->renderTemplate('form_ajout.html.twig',['listCategories' => $listCategories,'listCouleur' => $listCouleur ]);
+        $this->renderTemplate('form_ajout.html.twig', ['listCategories' => $listCategories, 'listCouleur' => $listCouleur]);
     }
-    
+
     #[Authorize('Admin')]
     #[Route(path: '/addBijoux', name: 'addBijoux', httpMethod: "POST")]
     public function addJewel()
@@ -101,7 +101,7 @@ class BijouxController extends AbstractController
         $description = $_POST['description'];
 
         /* Préparation de la requête */
-        $query = "UPDATE Couleurs SET Nom = :nom, Description = :description WHERE CouleurID = :id";
+        $query = "UPDATE couleur SET nom = :nom, description = :description WHERE id_couleur = :id";
         $statement = $this->pdo->prepare($query);
 
         $statement->bindParam(':nom', $colorName);
@@ -122,7 +122,7 @@ class BijouxController extends AbstractController
     public function deleteColor($id)
     {
         /* Préparation de la requête */
-        $query = "DELETE FROM Couleurs WHERE CouleurID = :id";
+        $query = "DELETE FROM couleur WHERE id_couleur = :id";
         $statement = $this->pdo->prepare($query);
 
         $statement->bindParam(':id', $id);
@@ -148,17 +148,19 @@ class BijouxController extends AbstractController
         $colorID = $_POST['colorID'];
 
         /* Préparation de la requête */
-        $query = "UPDATE Bijoux SET Nom = :nom, Description = :description, Prix = :prix, Image = :image, 
-              CatégorieID = :categorieID, CouleurID = :couleurID WHERE BijouID = :id";
+        $query = "UPDATE bijoux SET nom = :nom, description = :description, prix = :prix, image = :image, 
+              id_categorie = :id_categorie, id_couleur = :id_couleur, type=:type, WHERE id = :id";
         $statement = $this->pdo->prepare($query);
 
         $statement->bindParam(':nom', $jewelName);
         $statement->bindParam(':description', $description);
         $statement->bindParam(':prix', $price);
         $statement->bindParam(':image', $image);
-        $statement->bindParam(':categorieID', $categoryID);
-        $statement->bindParam(':couleurID', $colorID);
+        $statement->bindParam(':id_categorie', $categoryID);
+        $statement->bindParam(':id_couleur', $colorID);
         $statement->bindParam(':id', $id);
+        $statement->bindParam(':type', $type);
+
 
         $statement->execute();
         // TODO Retourner la bonne view
@@ -173,7 +175,7 @@ class BijouxController extends AbstractController
     public function deleteJewel($id)
     {
         /* Préparation de la requête */
-        $query = "DELETE FROM Bijoux WHERE BijouID = :id";
+        $query = "DELETE FROM bijoux WHERE id_bijou = :id";
         $statement = $this->pdo->prepare($query);
 
         $statement->bindParam(':id', $id);
@@ -190,7 +192,7 @@ class BijouxController extends AbstractController
     public function recupererBijoux()
     {
         /* Préparation de la requête pour récupérer les bijoux */
-        $queryBijoux = "SELECT * FROM Bijoux";
+        $queryBijoux = "SELECT * FROM bijoux";
         $statementBijoux = $this->pdo->prepare($queryBijoux);
         $statementBijoux->execute();
         $bijoux = $statementBijoux->fetchAll();
@@ -204,7 +206,7 @@ class BijouxController extends AbstractController
     public function recupererCouleurs()
     {
         /* Préparation de la requête pour récupérer les couleurs */
-        $queryCouleurs = "SELECT * FROM Couleurs";
+        $queryCouleurs = "SELECT * FROM couleur";
         $statementCouleurs = $this->pdo->prepare($queryCouleurs);
         $statementCouleurs->execute();
         $couleurs = $statementCouleurs->fetchAll();
@@ -222,11 +224,11 @@ class BijouxController extends AbstractController
         $clientId = $_POST['clientId'];
 
         /* Préparation de la requête */
-        $query = "INSERT INTO Commandes (ClientID) VALUES (:clientId)";
+        $query = "INSERT INTO commmande (id_client) VALUES (:id_client)";
         $statement = $this->pdo->prepare($query);
 
         /* Liaison des paramètres */
-        $statement->bindParam(':clientId', $clientId);
+        $statement->bindParam(':id_client', $clientId);
 
         /* Exécution de la requête */
         $statement->execute();
@@ -241,7 +243,7 @@ class BijouxController extends AbstractController
     public function recupererCommande($id)
     {
         /* Préparation de la requête */
-        $query = "SELECT * FROM Commandes WHERE CommandeID = :id";
+        $query = "SELECT * FROM commande WHERE id_commande = :id";
         $statement = $this->pdo->prepare($query);
 
         /* Liaison des paramètres */
@@ -261,7 +263,7 @@ class BijouxController extends AbstractController
     public function recupererCommandes()
     {
         /* Préparation de la requête */
-        $query = "SELECT * FROM Commandes";
+        $query = "SELECT * FROM commande";
         $statement = $this->pdo->prepare($query);
 
         /* Exécution de la requête */
@@ -282,7 +284,7 @@ class BijouxController extends AbstractController
         $nouveauStatut = $_POST['nouveauStatut'];
 
         /* Préparation de la requête */
-        $query = "UPDATE Commandes SET Statut = :nouveauStatut WHERE CommandeID = :id";
+        $query = "UPDATE commande SET status = :nouveauStatut WHERE id_commande = :id";
         $statement = $this->pdo->prepare($query);
 
         /* Liaison des paramètres */
@@ -302,7 +304,7 @@ class BijouxController extends AbstractController
     public function supprimerCommande($id)
     {
         /* Préparation de la requête */
-        $query = "DELETE FROM Commandes WHERE CommandeID = :id";
+        $query = "DELETE FROM commande WHERE id_commande = :id";
         $statement = $this->pdo->prepare($query);
 
         /* Liaison des paramètres */
@@ -329,7 +331,7 @@ class BijouxController extends AbstractController
         $nomCategorie = $_POST['nom'];
 
         /* Préparation de la requête */
-        $query = "INSERT INTO Categories (Nom) VALUES (:nom)";
+        $query = "INSERT INTO categorie (nom) VALUES (:nom)";
         $statement = $this->pdo->prepare($query);
 
         /* Liaison des paramètres */
@@ -347,7 +349,7 @@ class BijouxController extends AbstractController
     public function recupererCategorie($id)
     {
         /* Préparation de la requête */
-        $query = "SELECT * FROM Categories WHERE CategorieID = :id";
+        $query = "SELECT * FROM categorie WHERE id_categorie = :id";
         $statement = $this->pdo->prepare($query);
 
         /* Liaison des paramètres */
@@ -365,7 +367,7 @@ class BijouxController extends AbstractController
     public function supprimerCategorie($id)
     {
         /* Préparation de la requête */
-        $query = "DELETE FROM Categories WHERE CategorieID = :id";
+        $query = "DELETE FROM categorie WHERE id_categorie = :id";
         $statement = $this->pdo->prepare($query);
 
         /* Liaison des paramètres */
