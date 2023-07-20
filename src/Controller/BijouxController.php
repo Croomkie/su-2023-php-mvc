@@ -296,11 +296,10 @@ class BijouxController extends AbstractController
         $this->renderTemplate('.html.twig');
     }
 
-    #[Authorize('Admin')]
     #[Route("/produit", name: "produit")]
     public function produit()
     {
-        return $this->twig->render('produit.html.twig');
+        return $this->renderTemplate('produit.html.twig');
     }
 
     #[Authorize('Admin')]
