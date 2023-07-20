@@ -15,6 +15,46 @@
   <div class="mx-4 lg:mx-[200px] md:mx-[100px] mb-36" id="navbar">{% include 'navbar.html.twig' %}</div>
 <h1 class="text-center">Tableau de bord Admin</h1>
 
+ {% if message %}
+ <h3>{{ message }}</h3>
+ {% endif %}
+
+	<a href="formAjout" class="block text-center mt-10 mb-10 p-10 text-blue-700 bg-yellow-300 no-underline rounded-full w-60 cursor-pointer transition duration-300 ease-in-out transform hover:border-2 border-blue-700 hover:border-white hover:bg-white">Ajout</a>
+
+<div>
+  <table>
+      <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Description</th>
+          <th>Image</th>
+          <th>Prix</th>
+          <th>ID Catégorie</th>
+          <th>ID Couleur</th>
+          <th>Type</th>
+          <th>Actions</th>
+      </tr>
+
+      {% for bijou in listBijoux %}
+          <tr>
+              <td>{{ bijou.id }}</td>
+              <td>{{ bijou.nom }}</td>
+              <td>{{ bijou.description }}</td>
+              <td>{{ bijou.image }}</td>
+              <td>{{ bijou.prix }}</td>
+              <td>{{ bijou.id_categorie }}</td>
+              <td>{{ bijou.id_couleur }}</td>
+              <td>{{ bijou.type }}</td>
+              <td>
+                  <button>Edit</button>
+                  <button>Delete</button>
+              </td>
+          </tr>
+      {% endfor %}
+  </table>
+
+</div>
+
 	 <script src="{{asset('lang/language.js')}}"></script>
   <script src="node_modules/@flowbite/flowbite/dist/flowbite.js"></script>
 	</body>

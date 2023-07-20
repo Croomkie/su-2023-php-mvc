@@ -721,6 +721,7 @@
             class="caroussel"
             data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": true }'
           >
+          {% for bijou in bijoux %}
             <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
               <img
                 src="../images/images/photo4.jpeg"
@@ -729,66 +730,16 @@
               />
               <div class="mt-4 mx-4 flex flex-col gap-y-4">
                 <p class="text-blue-100">
-                  Collier PEARL Black en tourmaline 15 cm
+                  {{ bijou.Description }}
                 </p>
-                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
+                <p class="mb-4 text-blue-100 font-extrabold">{{ bijou.Prix }} €</p>
               </div>
             </div>
-            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
-              <img
-                src="../images/images/photo2.jpeg"
-                alt="image"
-                class="rounded-t-xl object-cover w-full h-[300px]"
-              />
-              <div class="mt-4 mx-4 flex flex-col gap-y-4">
-                <p class="text-blue-100">
-                  Collier PEARL Black en tourmaline 15 cm
-                </p>
-                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
-              </div>
-            </div>
-            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
-              <img
-                src="../images/images/photo2.jpeg"
-                alt="image"
-                class="rounded-t-xl object-cover w-full h-[300px]"
-              />
-              <div class="mt-4 mx-4 flex flex-col gap-y-4">
-                <p class="text-blue-100">
-                  Collier PEARL Black en tourmaline 15 cm
-                </p>
-                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
-              </div>
-            </div>
-            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
-              <img
-                src="../images/images/photo4.jpeg"
-                alt="image"
-                class="rounded-t-xl object-cover w-full h-[300px]"
-              />
-              <div class="mt-4 mx-4 flex flex-col gap-y-4">
-                <p class="text-blue-100">
-                  Collier PEARL Black en tourmaline 15 cm
-                </p>
-                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
-              </div>
-            </div>
-            <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
-              <img
-                src="../images/images/photo4.jpeg"
-                alt="image"
-                class="rounded-t-xl object-cover w-full h-[300px]"
-              />
-              <div class="mt-4 mx-4 flex flex-col gap-y-4">
-                <p class="text-blue-100">
-                  Collier PEARL Black en tourmaline 15 cm
-                </p>
-                <p class="mb-4 text-blue-100 font-extrabold">50 €</p>
-              </div>
-            </div>
+          {% endfor %}
           </div>
         </div>
       </a>
+    
     </div>
     <div id="footer">{% include 'footer.html.twig' %}</div>
   </body>

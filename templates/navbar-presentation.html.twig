@@ -43,9 +43,11 @@
             Blog
           </a>
           <span class="w-[1px] h-[13px] border-l border-nude-100"> </span>
-          <a href="/login" class="text-nude-100 hover:text-corail-100 block px-3 py-2 rounded-md">
-            Connexion
-          </a>
+              {% if isUserLoggedIn %}
+              <a href="/logout" class="text-nude-100 hover:text-corail-100 block px-3 py-2 rounded-md">Déconnexion</a>
+              {% else %}
+            <a href="/login" class="text-nude-100 hover:text-corail-100 block px-3 py-2 rounded-md">  Connexion</a>
+              {% endif %}
         </div>
 
         <div class="flex gap-2 items-center">
@@ -105,7 +107,7 @@
           </div>
         </div>
 
-        <!----------------------------------------- Navbar Mobile --------------------------->
+        <!----------------------------------------- Navbar Mobile -------------------------- -->
 
         <div class="md:hidden">
           <!-- burger menu -->
@@ -156,9 +158,11 @@
             >
               Blog
             </a>
-            <a href="/login" class="text-nude-100 hover:text-corail-100 block px-3 py-2 rounded-md">
-            Connexion
-          </a>
+          {% if isUserLoggedIn %}
+            <a href="/logout" class="text-nude-100 hover:text-corail-100 block px-3 py-2 rounded-md">Déconnexion</a>
+          {% else %}
+            <a href="/login"  class="text-nude-100 hover:text-corail-100 block px-3 py-2 rounded-md">  Connexion</a>
+          {% endif %}
           </div>
         </div>
       </nav>
