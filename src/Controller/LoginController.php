@@ -77,7 +77,7 @@ class LoginController extends AbstractController
 
         // Fetch the results
         $user = $statement->fetch(PDO::FETCH_OBJ);
-        if (empty($user) || !password_verify($password, $user->MotDePasse)) {
+        if (empty($user) || !password_verify($password, $user->mot_de_passe)) {
             $error = 'Le mot de passe ou le pseudo indiqué est erronée';
             return $this->twig->render('login.html.twig', ['error' => $error]);
         }
@@ -85,9 +85,9 @@ class LoginController extends AbstractController
             unset($user->password);
             $_SESSION['user'] = $user;
 
-            if ($user->Role == User::userRole) {
+            if ($user->role == User::userRole) {
                 $this->renderTemplate('index.html.twig');
-            } elseif ($user->Role == User::adminRole) {
+            } elseif ($user->role == User::adminRole) {
                 
                 /* Préparation de la requête */
                 $query = "SELECT * FROM bijoux";
