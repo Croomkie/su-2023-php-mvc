@@ -74,4 +74,10 @@ class IndexController extends AbstractController
   {
     $this->renderTemplate('confirmation.html.twig');
   }
+
+  #[Route("/produit", name: "produit")]
+  public function produit()
+  {
+    $this->renderTemplate('produit.html.twig');
+  }
 }
