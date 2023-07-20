@@ -87,7 +87,317 @@
       </div>
     </div>
 
+
       <!--Carte-->
+      <div class="md:block flex flex-col gap-y-40 mx-4 mt-6">
+            <div class="flex flex-col justify-center md:justify-normal md:flex-row items-center md:gap-x-4 gap-y-4">
+            {% if couleurs is not empty %}
+            {% set ligne_a_recuperer = 0 %}
+    
+            {% if ligne_a_recuperer >= 0 and ligne_a_recuperer < couleurs|length %}
+            {% set couleur = couleurs[ligne_a_recuperer] %}
+              <div class="flex flex-col md:w-1/3 w-full">
+                <div class="h-[300px] w-full">
+                  <img src="../images/images/photo1.jpeg" alt="image" class="w-full h-full object-cover rounded-t-3xl">
+                </div>
+                <div class="bg-white w-full rounded-b-3xl p-2 mb-4">
+                  <p class="text-corail-100 text-2xl">{{ couleur.nom }}</p>
+                  <p class="font-bold text-blue-100">{{ couleur.description }}</p>
+                </div>
+              </div>
+              <div class="flex flex-col md:w-1/3 w-full md:mt-40">
+                {% if couleurs is not empty %}
+                {% set ligne_a_recuperer = 1 %}
+    
+                {% if ligne_a_recuperer >= 0 and ligne_a_recuperer < couleurs|length %}
+                {% set couleur = couleurs[ligne_a_recuperer] %}
+                  <div class="h-[300px] w-full">
+                    <img src="../images/images/photo2.jpeg" alt="image" class="w-full h-full object-cover rounded-t-3xl">
+                  </div>
+                <div class="bg-white w-full rounded-b-3xl p-2 mb-4">
+                  <p class="text-corail-100 text-2xl">{{ couleur.nom }}</p>
+                  <p class="font-bold text-blue-100">{{ couleur.description }}</p>
+                </div>
+              </div>
+              <div class="flex flex-col md:w-1/3 w-full md:mt-20">
+                {% if couleurs is not empty %}
+                {% set ligne_a_recuperer = 2 %}
+    
+                {% if ligne_a_recuperer >= 0 and ligne_a_recuperer < couleurs|length %}
+                {% set couleur = couleurs[ligne_a_recuperer] %}
+                  <div class="h-[300px] w-full">
+                    <img src="../images/images/photo3.jpeg" alt="image" class="w-full h-full object-cover rounded-t-3xl">
+                  </div>
+                <div class="bg-white w-full rounded-b-3xl p-2 mb-4">
+                  <p class="text-corail-100 text-2xl">{{ couleur.nom }}</p>
+                  <p class="font-bold text-blue-100">{{ couleur.description }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col justify-center md:justify-normal -mt-36 md:flex-row items-center md:gap-x-4 gap-y-4">
+              {% if couleurs is not empty %}
+              {% set ligne_a_recuperer = 3 %}
+    
+              {% if ligne_a_recuperer >= 0 and ligne_a_recuperer < couleurs|length %}
+              {% set couleur = couleurs[ligne_a_recuperer] %}
+              <div class="flex flex-col md:w-1/3 w-full">
+                <div class="h-[300px] w-full">
+                  <img src="../images/images/photo4.jpeg" alt="image" class="w-full h-full object-cover rounded-t-3xl">
+                </div>
+                <div class="bg-white w-full rounded-b-3xl p-2 mb-4">
+                  <p class="text-corail-100 text-2xl">{{ couleur.nom }}</p>
+                  <p class="font-bold text-blue-100">{{ couleur.description }}</p>
+                </div>
+              </div>
+              <div class="flex flex-col md:w-1/3 w-full md:mt-40">
+                {% if couleurs is not empty %}
+                {% set ligne_a_recuperer = 4 %}
+    
+                {% if ligne_a_recuperer >= 0 and ligne_a_recuperer < couleurs|length %}
+                {% set couleur = couleurs[ligne_a_recuperer] %}
+                  <div class="h-[300px] w-full">
+                    <img src="../images/images/photo5.jpeg" alt="image" class="w-full h-full object-cover rounded-t-3xl">
+                  </div>
+                <div class="bg-white w-full rounded-b-3xl p-2 mb-4">
+                  <p class="text-corail-100 text-2xl">{{ couleur.nom }}</p>
+                  <p class="font-bold text-blue-100">{{ couleur.description }}</p>
+                </div>
+              </div>
+              <div class="flex flex-col md:w-1/3 w-full md:mt-20">
+                {% if couleurs is not empty %}
+                {% set ligne_a_recuperer = 5 %}
+    
+                {% if ligne_a_recuperer >= 0 and ligne_a_recuperer < couleurs|length %}
+                {% set couleur = couleurs[ligne_a_recuperer] %}
+                  <div class="h-[300px] w-full">
+                    <img src="../images/images/photo6.jpeg" alt="image" class="w-full h-full object-cover rounded-t-3xl">
+                  </div>
+                <div class="bg-white w-full rounded-b-3xl p-2 mb-4">
+                  <p class="text-corail-100 text-2xl">{{ couleur.nom }}</p>
+                  <p class="font-bold text-blue-100">{{ couleur.description }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col justify-center md:justify-normal -mt-36 md:flex-row items-center md:gap-x-4 gap-y-4">
+              {% if couleurs is not empty %}
+              {% set ligne_a_recuperer = 6 %}
+    
+              {% if ligne_a_recuperer >= 0 and ligne_a_recuperer < couleurs|length %}
+              {% set couleur = couleurs[ligne_a_recuperer] %}
+              <div class="flex flex-col md:w-1/3 w-full">
+                <div class="h-[300px] w-full">
+                  <img src="../images/images/photo7.jpeg" alt="image" class="w-full h-full object-cover rounded-t-3xl">
+                </div>
+                <div class="bg-white w-full rounded-b-3xl p-2 mb-4">
+                  <p class="text-corail-100 text-2xl">{{ couleur.nom }}</p>
+                  <p class="font-bold text-blue-100">{{ couleur.description }}</p>
+                </div>
+              </div>
+              <div class="flex flex-col md:w-1/3 w-full md:mt-40">
+                {% if couleurs is not empty %}
+                {% set ligne_a_recuperer = 7 %}
+    
+                {% if ligne_a_recuperer >= 0 and ligne_a_recuperer < couleurs|length %}
+                {% set couleur = couleurs[ligne_a_recuperer] %}
+                  <div class="h-[300px] w-full">
+                    <img src="../images/images/photo8.jpeg" alt="image" class="w-full h-full object-cover rounded-t-3xl">
+                  </div>
+                <div class="bg-white w-full rounded-b-3xl p-2 mb-4">
+                  <p class="text-corail-100 text-2xl">{{ couleur.nom }}</p>
+                  <p class="font-bold text-blue-100">{{ couleur.description }}</p>
+                </div>
+              </div>
+              <div class="flex flex-col md:w-1/3 w-full md:mt-20">
+                {% if couleurs is not empty %}
+                {% set ligne_a_recuperer = 8 %}
+    
+                {% if ligne_a_recuperer >= 0 and ligne_a_recuperer < couleurs|length %}
+                {% set couleur = couleurs[ligne_a_recuperer] %}
+                  <div class="h-[300px] w-full">
+                    <img src="../images/images/photo9.jpeg" alt="image" class="w-full h-full object-cover rounded-t-3xl">
+                  </div>
+                <div class="bg-white w-full rounded-b-3xl p-2 mb-4">
+                  <p class="text-corail-100 text-2xl">{{ couleur.nom }}</p>
+                  <p class="font-bold text-blue-100">{{ couleur.description }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col justify-center md:justify-normal -mt-36 md:flex-row items-center md:gap-x-4 gap-y-4">
+            {% if couleurs is not empty %}
+            {% set ligne_a_recuperer = 9 %}
+    
+            {% if ligne_a_recuperer >= 0 and ligne_a_recuperer < couleurs|length %}
+            {% set couleur = couleurs[ligne_a_recuperer] %}
+              <div class="flex flex-col md:w-1/3 w-full">
+                <div class="h-[300px] w-full">
+                  <img src="../images/produit1.jpg" alt="image" class="w-full h-full object-cover rounded-t-3xl">
+                </div>
+                <div class="bg-white w-full rounded-b-3xl p-2 mb-4">
+                  <p class="text-corail-100 text-2xl">{{ couleur.nom }}</p>
+                  <p class="font-bold text-blue-100">{{ couleur.description }}</p>
+                </div>
+              </div>
+              <div class="flex flex-col md:w-1/3 w-full md:mt-40">
+                {% if couleurs is not empty %}
+                {% set ligne_a_recuperer = 10 %}
+    
+                {% if ligne_a_recuperer >= 0 and ligne_a_recuperer < couleurs|length %}
+                {% set couleur = couleurs[ligne_a_recuperer] %}
+                  <div class="h-[300px] w-full">
+                    <img src="../images/produit2.jpg" alt="image" class="w-full h-full object-cover rounded-t-3xl">
+                  </div>
+                <div class="bg-white w-full rounded-b-3xl p-2 mb-4">
+                  <p class="text-corail-100 text-2xl">{{ couleur.nom }}</p>
+                  <p class="font-bold text-blue-100">{{ couleur.description }}</p>
+                </div>
+              </div>
+              <div class="flex flex-col md:w-1/3 w-full md:mt-20">
+                {% if couleurs is not empty %}
+                {% set ligne_a_recuperer = 11 %}
+    
+                {% if ligne_a_recuperer >= 0 and ligne_a_recuperer < couleurs|length %}
+                {% set couleur = couleurs[ligne_a_recuperer] %}
+                  <div class="h-[300px] w-full">
+                    <img src="../images/produit3.jpg" alt="image" class="w-full h-full object-cover rounded-t-3xl">
+                  </div>
+                <div class="bg-white w-full rounded-b-3xl p-2 mb-4">
+                  <p class="text-corail-100 text-2xl">{{ couleur.nom }}</p>
+                  <p class="font-bold text-blue-100">{{ couleur.description }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col justify-center md:justify-normal -mt-36 md:flex-row items-center md:gap-x-4 gap-y-4">
+              {% if couleurs is not empty %}
+              {% set ligne_a_recuperer = 12 %}
+    
+              {% if ligne_a_recuperer >= 0 and ligne_a_recuperer < couleurs|length %}
+              {% set couleur = couleurs[ligne_a_recuperer] %}
+              <div class="flex flex-col md:w-1/3 w-full">
+                <div class="h-[300px] w-full">
+                  <img src="../images/produit4.jpg" alt="image" class="w-full h-full object-cover rounded-t-3xl">
+                </div>
+                <div class="bg-white w-full rounded-b-3xl p-2 mb-4">
+                  <p class="text-corail-100 text-2xl">{{ couleur.nom }}</p>
+                  <p class="font-bold text-blue-100">{{ couleur.description }}</p>
+                </div>
+              </div>
+              <div class="flex flex-col md:w-1/3 w-full md:mt-40">
+                {% if couleurs is not empty %}
+                {% set ligne_a_recuperer = 13 %}
+    
+                {% if ligne_a_recuperer >= 0 and ligne_a_recuperer < couleurs|length %}
+                {% set couleur = couleurs[ligne_a_recuperer] %}
+                  <div class="h-[300px] w-full">
+                    <img src="../images/produit5.jpg" alt="image" class="w-full h-full object-cover rounded-t-3xl">
+                  </div>
+                <div class="bg-white w-full rounded-b-3xl p-2 mb-4">
+                  <p class="text-corail-100 text-2xl">{{ couleur.nom }}</p>
+                  <p class="font-bold text-blue-100">{{ couleur.description }}</p>
+                </div>
+              </div>
+              <div class="flex flex-col md:w-1/3 w-full md:mt-20">
+                {% if couleurs is not empty %}
+                {% set ligne_a_recuperer = 14 %}
+    
+                {% if ligne_a_recuperer >= 0 and ligne_a_recuperer < couleurs|length %}
+                {% set couleur = couleurs[ligne_a_recuperer] %}
+                  <div class="h-[300px] w-full">
+                    <img src="../images/images/photo4.jpeg" alt="image" class="w-full h-full object-cover rounded-t-3xl">
+                  </div>
+                <div class="bg-white w-full rounded-b-3xl p-2 mb-4">
+                  <p class="text-corail-100 text-2xl">{{ couleur.nom }}</p>
+                  <p class="font-bold text-blue-100">{{ couleur.description }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col justify-center md:justify-normal -mt-36 md:flex-row items-center md:gap-x-4 gap-y-4">
+              {% if couleurs is not empty %}
+              {% set ligne_a_recuperer = 15 %}
+    
+              {% if ligne_a_recuperer >= 0 and ligne_a_recuperer < couleurs|length %}
+              {% set couleur = couleurs[ligne_a_recuperer] %}
+              <div class="flex flex-col md:w-1/3 w-full">
+                <div class="h-[300px] w-full">
+                  <img src="../images/images/photo5.jpeg" alt="image" class="w-full h-full object-cover rounded-t-3xl">
+                </div>
+                <div class="bg-white w-full rounded-b-3xl p-2 mb-4">
+                  <p class="text-corail-100 text-2xl">{{ couleur.nom }}</p>
+                  <p class="font-bold text-blue-100">{{ couleur.description }}</p>
+                </div>
+              </div>
+              <div class="flex flex-col md:w-1/3 w-full md:mt-40">
+                {% if couleurs is not empty %}
+                {% set ligne_a_recuperer = 16 %}
+    
+                {% if ligne_a_recuperer >= 0 and ligne_a_recuperer < couleurs|length %}
+                {% set couleur = couleurs[ligne_a_recuperer] %}
+                  <div class="h-[300px] w-full">
+                    <img src="../images/images/photo6.jpeg" alt="image" class="w-full h-full object-cover rounded-t-3xl">
+                  </div>
+                <div class="bg-white w-full rounded-b-3xl p-2 mb-4">
+                  <p class="text-corail-100 text-2xl">{{ couleur.nom }}</p>
+                  <p class="font-bold text-blue-100">{{ couleur.description }}</p>
+                </div>
+              </div>
+              <div class="flex flex-col md:w-1/3 w-full md:mt-20">
+                {% if couleurs is not empty %}
+                {% set ligne_a_recuperer = 17 %}
+    
+                {% if ligne_a_recuperer >= 0 and ligne_a_recuperer < couleurs|length %}
+                {% set couleur = couleurs[ligne_a_recuperer] %}
+                  <div class="h-[300px] w-full">
+                    <img src="../images/images/photo7.jpeg" alt="image" class="w-full h-full object-cover rounded-t-3xl">
+                  </div>
+                <div class="bg-white w-full rounded-b-3xl p-2 mb-4">
+                  <p class="text-corail-100 text-2xl">{{ couleur.nom }}</p>
+                  <p class="font-bold text-blue-100">{{ couleur.description }}</p>
+                </div>
+              </div>
+            </div>
+          {% else %}
+          <p>La ligne spécifiée n'existe pas.</p>
+          {% endif %}
+          {% endif %}
+          {% endif %}
+          {% endif %}
+          {% endif %}
+          {% endif %}
+          {% endif %}
+          {% endif %}
+          {% endif %}
+          {% endif %}
+          {% endif %}
+          {% endif %}
+          {% endif %}
+          {% endif %}
+          {% endif %}
+          {% endif %}
+          {% endif %}
+          {% endif %}
+          
+        {% else %}
+        <p>Aucune couleur trouvée.</p>
+        {% endif %}
+        {% endif %}
+        {% endif %}
+        {% endif %}
+        {% endif %}
+        {% endif %}
+        {% endif %}
+        {% endif %}
+        {% endif %}
+        {% endif %}
+        {% endif %}
+        {% endif %}
+        {% endif %}
+        {% endif %}
+        {% endif %}
+        {% endif %}
+        {% endif %}
+        {% endif %}
+
+      </div>
+      {# <!--Carte-->
       <div class="md:block flex flex-col gap-y-40 mx-4 mt-6">
         <div class="flex flex-col justify-center md:justify-normal md:flex-row items-center md:gap-x-4 gap-y-4">
           <div class="flex flex-col md:w-1/3 w-full">
@@ -95,11 +405,14 @@
               <img src="../images/images/photo1.jpeg" alt="image" class="w-full h-full object-cover rounded-t-3xl">
             </div>
             <div class="bg-white w-full rounded-b-3xl p-2" mb-4>
-              <p class="text-corail-100 text-2xl">Apatites</p>
-              <p class="font-bold text-blue-100">Aqua Azura</p>
+
+            {% for couleur in couleurs %}
+              <p class="text-corail-100 text-2xl">{{ couleur.nom }}</p>
+              <p class="font-bold text-blue-100">{{ couleur.description }}</p>
             </div>
           </div>
-          <div class="flex flex-col md:w-1/3 w-full md:mt-40">
+          {% endfor %} #}
+          {# <div class="flex flex-col md:w-1/3 w-full md:mt-40">
             <div class="h-[300px] w-full">
               <img src="../images/images/photo2.jpeg" alt="image" class="w-full h-full object-cover rounded-t-3xl">
             </div>
@@ -261,7 +574,7 @@
               <p class="text-corail-100 text-2xl">Grenat</p>
               <p class="font-bold text-blue-100">Red velvet</p>
             </div>
-          </div>
+          </div> #}
         </div>
       </div>
 
