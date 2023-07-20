@@ -11,8 +11,7 @@ if (
 }
 
 // Initialisation de certaines choses
-use App\Controller\ContactController;
-use App\Controller\IndexController;
+use App\Routing\ArgumentResolver;
 use App\DependencyInjection\Container;
 use App\Routing\RouteNotFoundException;
 use App\Routing\Router;
@@ -60,7 +59,7 @@ $serviceContainer
 
 // Appeler un routeur pour lui transférer la requêt
 
-$router = new Router($serviceContainer);
+$router = new Router($serviceContainer, new ArgumentResolver());
 $router->registerRoutes();
 
 

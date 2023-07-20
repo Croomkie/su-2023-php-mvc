@@ -2,8 +2,8 @@
 
 namespace App\Routing;
 
-use App\Routing\Attribute\Route;
 use App\Routing\Attribute\Authorize;
+use App\Routing\Attribute\Route as RouteAttribute;
 use App\Utils\Filesystem;
 use Psr\Container\ContainerInterface;
 use ReflectionClass;
@@ -15,32 +15,28 @@ class Router
   private const CONTROLLERS_GLOB_PATH = __DIR__ . "/../Controller/*Controller.php";
 
   public function __construct(
-    private ContainerInterface $container
+    private ContainerInterface $container,
+    private ArgumentResolver $argumentResolver
   ) {
   }
 
+  /** @var Route[] */
   private array $routes = [];
 
-  public function addRoute(
-    string $name,
-    string $url,
-    string $httpMethod,
-    string $controllerClass,
-    string $controllerMethod
-  ) {
-    $this->routes[] = [
-      'name' => $name,
-      'url' => $url,
-      'http_method' => $httpMethod,
-      'controller' => $controllerClass,
-      'method' => $controllerMethod
-    ];
+  public function addRoute(Route $route): self
+  {
+    $this->routes[] = $route;
+
+    return $this;
   }
 
-  public function getRoute(string $uri, string $httpMethod): ?array
+  public function getRoute(string $uri, string $httpMethod): ?Route
   {
     foreach ($this->routes as $route) {
-      if ($route['url'] === $uri && $route['http_method'] === $httpMethod) {
+      if ($this->argumentResolver->match($uri, $route) && $route->getHttpMethod() === $httpMethod) {
+        $params = $this->argumentResolver->resolveUrlParams($uri, $route);
+
+        $route->setUrlParams($params);
         return $route;
       }
     }
@@ -62,16 +58,19 @@ class Router
       throw new RouteNotFoundException($requestUri, $httpMethod);
     }
 
-    $controllerClass = $route['controller'];
-    $method = $route['method'];
+    $controllerClass = $route->getController();
+    $method = $route->getMethod();
 
     $this->verifyRole($controllerClass, $method);
-
+    
     $constructorParams = $this->getMethodParams($controllerClass . '::__construct');
     $controllerInstance = new $controllerClass(...$constructorParams);
 
-    $controllerParams = $this->getMethodParams($controllerClass . '::' . $method);
-    echo $controllerInstance->$method(...$controllerParams);
+    $serviceParams = $this->getMethodParams($controllerClass . '::' . $method);
+
+    $params = array_merge($serviceParams, $route->getUrlParams());
+
+    echo call_user_func_array([$controllerInstance, $method], $params);
   }
 
   /**
@@ -92,37 +91,15 @@ class Router
     $methodParams = $methodInfos->getParameters();
 
     foreach ($methodParams as $methodParam) {
+      $paramName = $methodParam->getName();
       $paramType = $methodParam->getType();
       $paramTypeName = $paramType->getName();
-      $params[] = $this->container->get($paramTypeName);
+      if ($this->container->has($paramTypeName)) {
+        $params[$paramName] = $this->container->get($paramTypeName);
+      }
     }
 
     return $params;
-  }
-
-  private function verifyRole(string $controllerClass, string $method)
-  {
-    $reflection = new ReflectionMethod($controllerClass, $method);
-    $authorizeAttributes = $reflection->getAttributes(Authorize::class);
-
-    if (!empty($authorizeAttributes)) {
-      // Vérifier si l'utilisateur est connecté
-      if (!isset($_SESSION['user'])) {
-        header("Location: /");
-      }
-
-      $authorizeAttribute = $authorizeAttributes[0];
-      $roleRequired = $authorizeAttribute->newInstance()->role;
-
-      // Vérifier si l'utilisateur a un rôle
-      if (!isset($_SESSION['user']->Role)) {
-        header("Location: /");
-      }
-
-      if ($_SESSION['user']->Role !== $roleRequired) {
-        header("Location: /");
-      }
-    }
   }
 
   public function registerRoutes(): void
@@ -147,20 +124,45 @@ class Router
           continue;
         }
 
-        $attributes = $method->getAttributes(Route::class);
+        $attributes = $method->getAttributes(RouteAttribute::class);
 
         if (!empty($attributes)) {
           $routeAttribute = $attributes[0];
-          /** @var Route */
-          $routeInstance = $routeAttribute->newInstance();
-          $this->addRoute(
-            $routeInstance->getName(),
-            $routeInstance->getPath(),
-            $routeInstance->getHttpMethod(),
+          /** @var RouteAttribute */
+          $routeAttribute = $routeAttribute->newInstance();
+          $this->addRoute(new Route(
+            $routeAttribute->getPath(),
             $fqcn,
-            $method->getName()
-          );
+            $method->getName(),
+            $routeAttribute->getHttpMethod(),
+            $routeAttribute->getName()
+          ));
         }
+      }
+    }
+  }
+
+  private function verifyRole(string $controllerClass, string $method)
+  {
+    $reflection = new ReflectionMethod($controllerClass, $method);
+    $authorizeAttributes = $reflection->getAttributes(Authorize::class);
+
+    if (!empty($authorizeAttributes)) {
+      // Vérifier si l'utilisateur est connecté
+      if (!isset($_SESSION['user'])) {
+        header("Location: /");
+      }
+
+      $authorizeAttribute = $authorizeAttributes[0];
+      $roleRequired = $authorizeAttribute->newInstance()->role;
+
+      // Vérifier si l'utilisateur a un rôle
+      if (!isset($_SESSION['user']->Role)) {
+        header("Location: /");
+      }
+
+      if ($_SESSION['user']->Role !== $roleRequired) {
+        header("Location: /");
       }
     }
   }
