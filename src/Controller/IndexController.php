@@ -32,7 +32,7 @@ class IndexController extends AbstractController
     $this->renderTemplate('unique.html.twig');
   }
 
-  #[Route("/couleur", name: "couleur")]
+  #[Route("/Couleur", name: "couleur")]
   public function couleur()
   {
 
