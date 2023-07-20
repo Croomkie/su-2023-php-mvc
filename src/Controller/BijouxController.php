@@ -201,19 +201,17 @@ class BijouxController extends AbstractController
         $this->renderTemplate('precieuse.html.twig', ['bijouxRana' => $bijouxRana, 'bijouxTrilogy' => $bijouxTrilogy, 'bijouxPearl' => $bijouxPearl, 'bijouxFamily' => $bijouxFamily]);
     }
 
-
-    #[Authorize('Admin')]
-    #[Route(path: '/recupererCouleurs', name: 'recupererCouleurs', httpMethod: "GET")]
+    #[Route(path: '/recupererCouleur', name: 'recupererCouleur', httpMethod: "GET")]
     public function recupererCouleurs()
     {
-        /* Préparation de la requête pour récupérer les couleurs */
-        $queryCouleurs = "SELECT * FROM couleur";
-        $statementCouleurs = $this->pdo->prepare($queryCouleurs);
-        $statementCouleurs->execute();
-        $couleurs = $statementCouleurs->fetchAll();
+        /*requête pour récupérer les couleurs */
+        $querycouleur = "SELECT * FROM couleur";
+        $statementcouleur = $this->pdo->prepare($querycouleur);
+        $statementcouleur->execute();
+        $couleur = $statementcouleur->fetchAll();
 
         // TODO Retourner la bonne view
-        $this->renderTemplate('.html.twig', ['couleurs' => $couleurs]);
+        $this->renderTemplate('Couleur.html.twig', ['couleurs' => $couleur]);
     }
 
     /* Ajouter une commande */
@@ -328,7 +326,6 @@ class BijouxController extends AbstractController
     #[Route(path: '/produit/{id}', name: 'recupererBijou', httpMethod: "GET")]
     public function recupererBijou($id)
     {
-        var_dump($id);
         /* Préparation de la requête pour récupérer le bijou */
         $queryBijou = "SELECT * FROM Bijoux WHERE id = :id";
         $statementBijou = $this->pdo->prepare($queryBijou);
@@ -339,7 +336,6 @@ class BijouxController extends AbstractController
         // TODO Retourner la bonne view
         $this->renderTemplate('produit.html.twig', ['bijou' => $bijou]);
     }
-
 
     #[Authorize('Admin')]
     #[Route(path: '/ajouter-categorie', name: 'ajouterCategorie', httpMethod: "POST")]
