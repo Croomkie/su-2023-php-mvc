@@ -46,8 +46,11 @@
               <td>{{ bijou.id_couleur }}</td>
               <td>{{ bijou.type }}</td>
               <td>
-                 <a href="/update/{{ bijou.id }}"><button>Edit</button></a>
-                  <button>Delete</button>
+                 <a href="/updateFormBijou/{{ bijou.id }}"><button>Edit</button></a>
+                 <form method="POST" action="/deleteBijou">
+                   <input type="hidden" name="jewelId" id="name" value="{{ bijou.id }}">
+                  <button type="submit">Delete</button>
+                </form>
               </td>
           </tr>
       {% endfor %}
@@ -55,7 +58,7 @@
 
 </div>
 
-	 <script src="{{asset('lang/language.js')}}"></script>
+  <script src="{{asset('lang/language.js')}}"></script>
   <script src="node_modules/@flowbite/flowbite/dist/flowbite.js"></script>
 	</body>
 </html>

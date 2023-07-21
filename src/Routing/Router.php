@@ -164,11 +164,11 @@ class Router
       $roleRequired = $authorizeAttribute->newInstance()->role;
 
       // Vérifier si l'utilisateur a un rôle
-      if (!isset($_SESSION['user']->Role)) {
+      if (!isset($_SESSION['user']->role)) {
         header("Location: /");
       }
 
-      if ($_SESSION['user']->Role !== $roleRequired) {
+      if ($_SESSION['user']->role !== $roleRequired) {
         header("Location: /");
       }
     }

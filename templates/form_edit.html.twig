@@ -16,43 +16,53 @@
 
 <h1 class="text-center">Tableau de bord Admin</h1>
 
-<form class="px-20" action="/addBijoux" method="POST">
-
+<form method="POST" action="/updateBijou">
+  <!-- Other form elements -->
+  <input type="hidden" name="jewelId" id="name" value="{{ bijou.id }}">
   <div class="mb-4 w-60">
     <label for="name" class="block text-gray-700 font-bold mb-2">Nom:</label>
-    <input type="text" name="jewelName" id="name" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Entrer le nom">
+    <input type="text" name="jewelName" id="name" value="{{ bijou.nom }}" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Entrer le nom">
   </div>
+
   <div class="mb-4">
     <label for="description" class="block text-gray-700 font-bold mb-2">Description:</label>
-    <textarea id="description" name="description" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Entrer la description"></textarea>
+    <textarea id="description" name="description" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Entrer la description">{{ bijou.description }}</textarea>
   </div>
+
   <div class="mb-4">
     <label for="color" class="block text-gray-700 font-bold mb-2">Couleur:</label>
     <select id="color" name="colorID" required>
-      {% for Couleur in listCouleur %}
-          <option value="{{ Couleur.id }}">{{ Couleur.nom }}</option>
+      {% for couleur in listCouleur %}
+        <option value="{{ couleur.id }}" {% if bijou.id_couleur == couleur.id %} selected {% endif %}>{{ couleur.nom }}</option>
       {% endfor %}
-  </select> </div>
+    </select>
+  </div>
+
   <div class="mb-4">
     <label for="image" class="block text-gray-700 font-bold mb-2">Image:</label>
-    <input type="text" id="image" name="image" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Entrer l'image">
+    <input type="text" id="image" name="image" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Entrer l'image" value="{{ bijou.image }}">
   </div>
+
   <div class="mb-4">
     <label for="price" class="block text-gray-700 font-bold mb-2">Prix:</label>
-    <input type="text" id="price" name="price" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Entrer le prix">
+    <input type="text" id="price" name="price" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Entrer le prix" value="{{ bijou.prix }}">
   </div>
+
   <div class="mb-4">
-  <label for="category" class="block text-gray-700 font-bold mb-2">Catégorie :</label>
-  <select id="category" name="categoryID" required>
+    <label for="category" class="block text-gray-700 font-bold mb-2">Catégorie:</label>
+    <select id="category" name="categoryID" required>
       {% for category in listCategories %}
-          <option value="{{ category.id }}">{{ category.nom }}</option>
+        <option value="{{ category.id }}" {% if bijou.id_categorie == category.id %} selected {% endif %}>{{ category.nom }}</option>
       {% endfor %}
-  </select>
+    </select>
   </div>
   <div class="flex justify-center">
     <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
   </div>
+  <!-- Submit button and form closing tag -->
 </form>
+
+
 <footer id="foot">{% include 'footer.html.twig' %}</footer>
 <script src="{{asset('lang/language.js')}}"></script>
 </body>
