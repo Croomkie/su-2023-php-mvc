@@ -78,10 +78,10 @@ class IndexController extends AbstractController
 
     $cartProducts = [];
     if (isset($_SESSION['cart'])) {
-      foreach ($_SESSION['cart'] as $cartId) {
+      foreach ($_SESSION['cart'] as $id) {
         $queryBijou = "SELECT * FROM Bijoux WHERE id = :id";
         $statementBijou = $this->pdo->prepare($queryBijou);
-        $statementBijou->bindParam(':id', $cartId);
+        $statementBijou->bindParam(':id', $id);
         $statementBijou->execute();
         $bijou = $statementBijou->fetch();
         array_push($cartProducts, $bijou);
