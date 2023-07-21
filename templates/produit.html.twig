@@ -15,7 +15,6 @@
   <link rel="shortcut icon" href="../images/logo/emma-pierre-logo-blanc.png" />
 
 </head>
-
 <body class="bg-nude-100 font-Jost">
   <div class="mx-4 lg:mx-[200px] md:mx-[100px]">
     <div class="mb-36" id="navbar">{% include 'navbar.html.twig' %}</div>
@@ -28,7 +27,7 @@
     </div>
     <div class="md:hidden flex flex-col gap-y-3 my-4">
       <p class="text-blue-100 text-3xl">Bijoux pierre naturel</p>
-      <p class="text-blue-300 text-3xl">65,00 €</p>
+      <p class="text-blue-300 text-3xl">{{bijou.prix}} €</p>
     </div>
     <div class="md:hidden w-full h-[3px] bg-blue-100"></div>
     <div class="md:w-7/12 md:hidden flex md:flex-row-reverse md:gap-x-6 h-full flex-col gap-y-4 mt-4">
@@ -156,8 +155,8 @@
         <div class="h-[300px] w-[3px] bg-blue-100"></div>
         <div class="flex flex-col">
           <div class="flex flex-col gap-y-5 my-4">
-            <p class="text-blue-100 text-3xl">Bijoux pierre naturel</p>
-            <p class="text-blue-300 text-3xl">65,00 €</p>
+            <p class="text-blue-100 text-3xl">{{bijou.nom}}</p>
+            <p class="text-blue-300 text-3xl">{{bijou.prix}} €</p>
           </div>
           <div class="flex flex-col gap-4 mt-6">
             <div class="w-full">
@@ -181,7 +180,7 @@
               </select>
             </div>
             <div>
-              <a href="/panier">
+              <a href="/ajouterPanier/{{bijou.id}}">
                 <button class="group relative h-12 w-48 overflow-hidden rounded-lg bg-blue-100 text-lg shadow">
                   <div
                     class="absolute inset-0 w-3 bg-nude-300 transition-all duration-[600ms] ease-out group-hover:w-full">
@@ -239,11 +238,7 @@
       <div class="mt-6 flex flex-col gap-y-4">
         <p class="text-blue-100 text-3xl">Description :</p>
         <p class="text-gris-300 text-xl">
-          Série Lotus d'Or : vous trouverez certainement la pièce qui vous
-          accompagnera pendant très longtempsModèle Bali : Un ravissant
-          ras-de-cou en perles d'opale rose et 1 de quartz (diamètre 6 mm) sur
-          perles Miyuki dorées, les autres composants en plaqué or 24 carats,
-          longueur environ de 34 à 42 cm, vous apportera douceur et sérénité.
+          {{bijou.description}}
         </p>
       </div>
     </div>

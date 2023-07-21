@@ -62,7 +62,7 @@ class Router
     $method = $route->getMethod();
 
     $this->verifyRole($controllerClass, $method);
-    
+
     $constructorParams = $this->getMethodParams($controllerClass . '::__construct');
     $controllerInstance = new $controllerClass(...$constructorParams);
 
@@ -104,6 +104,7 @@ class Router
         $params[$paramName] = $this->container->get($paramTypeName);
       }
     }
+
 
     return $params;
   }

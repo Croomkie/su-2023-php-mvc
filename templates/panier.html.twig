@@ -49,6 +49,10 @@
         </div>
 
         <section class="font-Jost flex flex-col gap-4 bg-nude-100 p-4 rounded-lg mb-4">
+        {% if panier == null %}
+        <h1>Votre panier est vide</h1>
+         {% endif %}
+        {% for bijou in panier %}
           <article class="flex flex-col gap-4">
             <div class="flex items-center gap-4">
               <div class="w-[59px] h-[70px]">
@@ -58,65 +62,21 @@
               <div>
                 <div class="flex gap-2">
                   <p class="font-Jost font-semibold text-xs">
-                    Lorem ipsum dolor sit amet consectetur.
+                    {{bijou.name}}
                   </p>
-                  <p class="font-Jost font-semibold text-blue-200">x2</p>
+                  <p class="font-Jost font-semibold text-blue-200">x1</p>
                 </div>
                 <div class="flex gap-2 items-end">
                   <p class="font-Jost font-normal">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    {{bijou.description}}
                   </p>
-                  <p class="font-Jost font-semibold text-blue-200">25€</p>
+                  <p class="font-Jost font-semibold text-blue-200">{{bijou.prix}} €</p>
                 </div>
               </div>
             </div>
             <span class="underline-bar-article"></span>
-          </article>
-          <article class="flex flex-col gap-4">
-            <div class="flex items-center gap-4">
-              <div class="w-[59px] h-[70px]">
-                <img class="object-contain rounded-lg" src="../images/WhatsApp Image 2023-03-08 at 20.16.08.jpeg"
-                  alt="" />
-              </div>
-              <div>
-                <div class="flex gap-2">
-                  <p class="font-Jost font-semibold text-xs">
-                    Lorem ipsum dolor sit amet consectetur.
-                  </p>
-                  <p class="font-Jost font-semibold text-blue-200">x2</p>
-                </div>
-                <div class="flex gap-2 items-end">
-                  <p class="font-Jost font-normal">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                  <p class="font-Jost font-semibold text-blue-200">25€</p>
-                </div>
-              </div>
-            </div>
-            <span class="underline-bar-article"></span>
-          </article>
-          <article class="flex flex-col gap-4">
-            <div class="flex items-center gap-4">
-              <div class="w-[59px] h-[70px]">
-                <img class="object-contain rounded-lg" src="../images/WhatsApp Image 2023-03-08 at 20.16.08.jpeg"
-                  alt="" />
-              </div>
-              <div>
-                <div class="flex gap-2">
-                  <p class="font-Jost font-semibold text-xs">
-                    Lorem ipsum dolor sit amet consectetur.
-                  </p>
-                  <p class="font-Jost font-semibold text-blue-200">x2</p>
-                </div>
-                <div class="flex gap-2 items-end">
-                  <p class="font-normal">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                  <p class="font-semibold text-blue-200">25€</p>
-                </div>
-              </div>
-            </div>
-            <span class="underline-bar-article"></span>
+            <a href="/deleteitem/{{loop.index0}}">Supprimer</a>
+             {% endfor %}
           </article>
         </section>
         <div class="hidden md:inline-block md:float-right">
