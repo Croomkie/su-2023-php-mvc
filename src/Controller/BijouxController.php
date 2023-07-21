@@ -76,12 +76,12 @@ class BijouxController extends AbstractController
     #[Route(path: '/updateBijou/{id}', name: 'updateBijou', httpMethod: "POST")]
     public function updateJewel($id)
     {
-        
-        
-        
-        
+
+
+
+
         var_dump($id);
-        
+
         $jewelName = $_POST['jewelName'];
         $description = $_POST['description'];
         $price = $_POST['price'];
@@ -133,11 +133,31 @@ class BijouxController extends AbstractController
     #[Route(path: '/recupererBijoux', name: 'recupererBijoux', httpMethod: "GET")]
     public function recupererBijoux()
     {
-        /* Préparation de la requête pour récupérer les bijoux */
-        $queryBijoux = "SELECT * FROM bijoux";
-        $statementBijoux = $this->pdo->prepare($queryBijoux);
-        $statementBijoux->execute();
-        $bijoux = $statementBijoux->fetchAll();
+        /* Préparation des requêtes pour récupérer les bijoux de type 'Rana', 'Trilogy' et 'Pearl' */
+
+        // Requête pour 'Rana'
+        $queryRana = "SELECT * FROM Bijoux WHERE type = 'Rana'";
+        $statementRana = $this->pdo->prepare($queryRana);
+        $statementRana->execute();
+        $bijouxRana = $statementRana->fetchAll();
+
+        // Requête pour 'Trilogy'
+        $queryTrilogy = "SELECT * FROM Bijoux WHERE type = 'Trilogy'";
+        $statementTrilogy = $this->pdo->prepare($queryTrilogy);
+        $statementTrilogy->execute();
+        $bijouxTrilogy = $statementTrilogy->fetchAll();
+
+        // Requête pour 'Family'
+        $queryFamily = "SELECT * FROM Bijoux WHERE type = 'Family'";
+        $statementFamily = $this->pdo->prepare($queryFamily);
+        $statementFamily->execute();
+        $bijouxFamily = $statementFamily->fetchAll();
+
+        // Requête pour 'Pearl'
+        $queryPearl = "SELECT * FROM Bijoux WHERE type = 'Pearl'";
+        $statementPearl = $this->pdo->prepare($queryPearl);
+        $statementPearl->execute();
+        $bijouxPearl = $statementPearl->fetchAll();
 
         // Retourne la bonne view avec les trois listes de bijoux
         $this->renderTemplate('precieuse.html.twig', ['bijouxRana' => $bijouxRana, 'bijouxTrilogy' => $bijouxTrilogy, 'bijouxPearl' => $bijouxPearl, 'bijouxFamily' => $bijouxFamily]);
@@ -170,7 +190,8 @@ class BijouxController extends AbstractController
 
         $statement->bindParam(':nom', $colorName);
         $statement->bindParam(':description', $description);
-        $statement->bindParam(':id',
+        $statement->bindParam(
+            ':id',
             $id
         );
 
