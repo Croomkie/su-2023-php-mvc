@@ -9,8 +9,13 @@ use App\Routing\Attribute\Authorize;
 
 class BijouxController extends AbstractController
 {
+    #[Authorize('Admin')]
+    #[Route(path: '/boardAdmin', name: 'boardAdmin', httpMethod: "GET")]
+    public function boardAdmin($datas){
 
-    /*--------------------------------------------- Ajout de bijoux --------------------------------------------*/
+        $this->renderTemplate('board_admin.html.twig', [$datas]);
+    }
+
 
     /* Form controller */
 
@@ -41,6 +46,40 @@ class BijouxController extends AbstractController
     }
 
     #[Authorize('Admin')]
+    #[Route(path: '/updateFormBijou/{id}', name: 'updateBijou', httpMethod: "GET")]
+    public function updateFormJewel($id)
+    {
+
+        /* Préparation de la requête */
+        $query = "SELECT * from categorie ";
+
+        $statement = $this->pdo->prepare($query);
+        $statement->execute();
+
+        // Fetch the results
+        $listCategories = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        /* Préparation de la requête */
+        $query = "SELECT id,nom from couleur ";
+
+        $statement = $this->pdo->prepare($query);
+        $statement->execute();
+
+        // Fetch the results
+        $listCouleur = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        /* Préparation de la requête */
+        $query = "Select * from bijoux where id = $id";
+        $statement = $this->pdo->prepare($query);
+
+        $statement->execute();
+
+        $bijou = $statement->fetch(PDO::FETCH_OBJ);
+
+        $this->renderTemplate('form_edit.html.twig', ['bijou' => $bijou, 'listCategories' => $listCategories, 'listCouleur' => $listCouleur]);
+    }
+
+    #[Authorize('Admin')]
     #[Route(path: '/addBijoux', name: 'addBijoux', httpMethod: "POST")]
     public function addBijoux()
     {
@@ -67,21 +106,26 @@ class BijouxController extends AbstractController
 
         $message = 'Le bijou a été ajouté avec succès';
 
+
+        /* Préparation de la requête */
+        $query = "SELECT * FROM bijoux";
+        $statement = $this->pdo->prepare($query);
+
+        $statement->execute();
+
+        // Fetch the results
+        $listBijoux = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+
         // TODO Retourner la bonne view
-        $this->renderTemplate('board_admin.html.twig', ['message' => $message]);
+        $this->renderTemplate('board_admin.html.twig', ['message' => $message, 'listBijoux' => $listBijoux]);
     }
 
-
     #[Authorize('Admin')]
-    #[Route(path: '/updateBijou/{id}', name: 'updateBijou', httpMethod: "POST")]
-    public function updateJewel($id)
+    #[Route(path: '/updateBijou', name: 'updateBijou', httpMethod: "POST")]
+    public function updateBijou()
     {
-
-
-
-
-        var_dump($id);
-
+        $jewelId = $_POST['jewelId'];
         $jewelName = $_POST['jewelName'];
         $description = $_POST['description'];
         $price = $_POST['price'];
@@ -89,10 +133,8 @@ class BijouxController extends AbstractController
         $categoryID = $_POST['categoryID'];
         $colorID = $_POST['colorID'];
 
-
         /* Préparation de la requête */
-        $query = "UPDATE bijoux SET nom = :nom, description = :description, prix = :prix, image = :image, 
-        id_categorie = :id_categorie, id_couleur = :id_couleur, type=:type, WHERE id = :id";
+        $query = "UPDATE bijoux SET nom = :nom, description = :description, prix = :prix, image = :image, id_categorie = :id_categorie, id_couleur = :id_couleur WHERE id = $jewelId";
         $statement = $this->pdo->prepare($query);
 
         $statement->bindParam(':nom', $jewelName);
@@ -101,34 +143,50 @@ class BijouxController extends AbstractController
         $statement->bindParam(':image', $image);
         $statement->bindParam(':id_categorie', $categoryID);
         $statement->bindParam(':id_couleur', $colorID);
-        $statement->bindParam(':id', $id);
-        $statement->bindParam(':type', $type);
 
         $statement->execute();
-        // TODO Retourner la bonne view
-        $message = 'Le bijou a été mis à jour avec succès';
+        $message = 'Le bijou a été modifié avec succès';
+
+
+        /* Préparation de la requête */
+        $query = "SELECT * FROM bijoux";
+        $statement = $this->pdo->prepare($query);
+
+        $statement->execute();
+
+        // Fetch the results
+        $listBijoux = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         // TODO Retourner la bonne view
-        $this->renderTemplate('.html.twig', ['message' => $message]);
+        $this->renderTemplate('board_admin.html.twig', ['message' => $message, 'listBijoux' => $listBijoux]);
     }
 
     #[Authorize('Admin')]
-    #[Route(path: '/deleteBijou/{id}', name: 'deleteBijou', httpMethod: "POST")]
-    public function deleteJewel($id)
-    {
-        /* Préparation de la requête */
-        $query = "DELETE FROM bijoux WHERE id_bijou = :id";
-        $statement = $this->pdo->prepare($query);
+#[Route(path: '/deleteBijou', name: 'deleteBijou', httpMethod: "POST")]
+public function deleteBijou()
+{
+    $id = $_POST['jewelId'];
+    
+    /* Préparation de la requête */
+    $query = "DELETE FROM bijoux WHERE id = $id ";
+    $statement = $this->pdo->prepare($query);
 
-        $statement->bindParam(':id', $id);
+    $statement->execute();
 
-        $statement->execute();
+    $message = 'Le bijou a été supprimé avec succès';
 
-        $message = 'Le bijou a été supprimé avec succès';
+    /* Préparation de la requête */
+    $query = "SELECT * FROM bijoux";
+    $statement = $this->pdo->prepare($query);
 
-        // TODO Retourner la bonne view
-        $this->renderTemplate('.html.twig', ['message' => $message]);
-    }
+    $statement->execute();
+
+    // Fetch the results
+    $listBijoux = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    $this->renderTemplate('board_admin.html.twig', ['message' => $message, 'listBijoux' => $listBijoux]);
+}
+
 
     #[Route(path: '/recupererBijoux', name: 'recupererBijoux', httpMethod: "GET")]
     public function recupererBijoux()

@@ -93,6 +93,12 @@ class Router
     foreach ($methodParams as $methodParam) {
       $paramName = $methodParam->getName();
       $paramType = $methodParam->getType();
+
+      // Add this check:
+      if ($paramType === null) {
+        continue; // Skip this iteration of the loop if the parameter type is not defined
+      }
+
       $paramTypeName = $paramType->getName();
       if ($this->container->has($paramTypeName)) {
         $params[$paramName] = $this->container->get($paramTypeName);
@@ -157,11 +163,11 @@ class Router
       $roleRequired = $authorizeAttribute->newInstance()->role;
 
       // Vérifier si l'utilisateur a un rôle
-      if (!isset($_SESSION['user']->Role)) {
+      if (!isset($_SESSION['user']->role)) {
         header("Location: /");
       }
 
-      if ($_SESSION['user']->Role !== $roleRequired) {
+      if ($_SESSION['user']->role !== $roleRequired) {
         header("Location: /");
       }
     }
