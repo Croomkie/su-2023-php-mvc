@@ -48,7 +48,47 @@ class IndexController extends AbstractController
   #[Route("/panier", name: "panier")]
   public function panier()
   {
-    $this->renderTemplate('panier.html.twig');
+    if (!isset($_SESSION['cart'])) {
+      $_SESSION['cart'] = array();
+    }
+    $cartProducts = [];
+    if (isset($_SESSION['cart'])) {
+      foreach ($_SESSION['cart'] as $id) {
+        $queryBijou = "SELECT * FROM Bijoux WHERE id = :id";
+        $statementBijou = $this->pdo->prepare($queryBijou);
+        $statementBijou->bindParam(':id', $id);
+        $statementBijou->execute();
+        $bijou = $statementBijou->fetch();
+        array_push($cartProducts, $bijou);
+      }
+    }
+
+    $this->renderTemplate('panier.html.twig', ['panier' => $cartProducts]);
+  }
+
+  #[Route("/deleteitem/{id}", name: "panier")]
+  public function deleteitem($id)
+  {
+    if (!isset($_SESSION['cart'])) {
+      $_SESSION['cart'] = array();
+    }
+    if (isset($_SESSION['cart'][$id])) {
+      unset($_SESSION['cart'][$id]);
+    }
+
+    $cartProducts = [];
+    if (isset($_SESSION['cart'])) {
+      foreach ($_SESSION['cart'] as $cartId) {
+        $queryBijou = "SELECT * FROM Bijoux WHERE id = :id";
+        $statementBijou = $this->pdo->prepare($queryBijou);
+        $statementBijou->bindParam(':id', $cartId);
+        $statementBijou->execute();
+        $bijou = $statementBijou->fetch();
+        array_push($cartProducts, $bijou);
+      }
+    }
+
+    $this->renderTemplate('panier.html.twig', ['panier' => $cartProducts]);
   }
 
   #[Route("/blog", name: "blog")]

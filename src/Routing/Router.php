@@ -62,7 +62,7 @@ class Router
     $method = $route->getMethod();
 
     $this->verifyRole($controllerClass, $method);
-    
+
     $constructorParams = $this->getMethodParams($controllerClass . '::__construct');
     $controllerInstance = new $controllerClass(...$constructorParams);
 
@@ -93,11 +93,18 @@ class Router
     foreach ($methodParams as $methodParam) {
       $paramName = $methodParam->getName();
       $paramType = $methodParam->getType();
+
+      // Add this check:
+      if ($paramType === null) {
+        continue; // Skip this iteration of the loop if the parameter type is not defined
+      }
+
       $paramTypeName = $paramType->getName();
       if ($this->container->has($paramTypeName)) {
         $params[$paramName] = $this->container->get($paramTypeName);
       }
     }
+
 
     return $params;
   }
