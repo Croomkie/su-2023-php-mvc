@@ -385,7 +385,25 @@ class BijouxController extends AbstractController
     #[Route(path: '/produit/{id}', name: 'recupererBijou', httpMethod: "GET")]
     public function recupererBijou($id)
     {
-        var_dump($id);
+        /* Préparation de la requête pour récupérer le bijou */
+        $queryBijou = "SELECT * FROM Bijoux WHERE id = :id";
+        $statementBijou = $this->pdo->prepare($queryBijou);
+        $statementBijou->bindParam(':id', $id);
+        $statementBijou->execute();
+        $bijou = $statementBijou->fetch();
+
+        // TODO Retourner la bonne view
+        $this->renderTemplate('produit.html.twig', ['bijou' => $bijou]);
+    }
+
+    #[Route(path: '/ajouterPanier/{id}', name: 'ajouterPanier', httpMethod: "GET")]
+    public function ajouterPanier($id)
+    {
+        if (!isset($_SESSION['cart'])) {
+            $_SESSION['cart'] = array();
+        }
+
+        array_push($_SESSION['cart'], $id);
         /* Préparation de la requête pour récupérer le bijou */
         $queryBijou = "SELECT * FROM Bijoux WHERE id = :id";
         $statementBijou = $this->pdo->prepare($queryBijou);

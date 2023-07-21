@@ -167,7 +167,6 @@
         </div>
       </div>
       <!-- Caroussel FAMILY  -->
-      <a href="/produit">
         <div class="flex flex-col gap-y-2 mt-6">
           <p id="family" class="font-extrabold text-blue-100 text-2xl">
             FAMILY
@@ -179,6 +178,7 @@
           >
           {% for bijou in bijouxFamily %}
             {% if bijou.nom == 'Bracelet' %}
+            <a href="/produit/{{ bijou.id }}">
             <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
               <img
                 src="../images/images/photo4.jpeg"
@@ -192,14 +192,13 @@
                 <p class="mb-4 text-blue-100 font-extrabold"> {{ bijou.prix }} €</p>
               </div>
             </div>
+            </a>
             {% endif %}
           {% endfor %}
           </div>
         </div>
-      </a>
 
       <!-- Caroussel Colliers FAMILY-->
-      <a href="/produit">
         <div class="flex flex-col gap-y-2 mt-10">
           <p class="font-extrabold text-gris-300 text-sm">COLLIERS</p>
           <div
@@ -208,6 +207,7 @@
           >
           {% for bijou in bijouxFamily %}
             {% if bijou.nom == 'Collier' %}
+            <a href="/produit/{{ bijou.id }}">
             <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
               <img
                 src="../images/images/photo4.jpeg"
@@ -221,14 +221,13 @@
                 <p class="mb-4 text-blue-100 font-extrabold"> {{ bijou.prix }} €</p>
               </div>
             </div>
+            </a>
             {% endif %}
           {% endfor %}
           </div>
         </div>
-      </a>
 
       <!-- Caroussel TRILOGY  -->
-      <a href="/produit">
         <div class="flex flex-col gap-y-2 mt-10">
           <p id="trilogy" class="font-extrabold text-blue-100 text-2xl">
             TRILOGY
@@ -240,6 +239,7 @@
           >
           {% for bijou in bijouxTrilogy %}
             {% if bijou.nom == 'Bracelet' %}
+            <a href="/produit/{{ bijou.id }}">
             <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
               <img
                 src="../images/images/photo4.jpeg"
@@ -253,14 +253,13 @@
                 <p class="mb-4 text-blue-100 font-extrabold"> {{ bijou.prix }} €</p>
               </div>
             </div>
+            </a>
             {% endif %}
           {% endfor %}
           </div>
         </div>
-      </a>
 
       <!-- Caroussel Colliers TRILOGY-->
-      <a href="/produit">
         <div class="flex flex-col gap-y-2 mt-10">
           <p class="font-extrabold text-gris-300 text-sm">COLLIERS</p>
           <div
@@ -269,6 +268,7 @@
           >
           {% for bijou in bijouxTrilogy %}
             {% if bijou.nom == 'Collier' %}
+            <a href="/produit/{{ bijou.id }}">
             <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
               <img
                 src="../images/images/photo4.jpeg"
@@ -282,11 +282,11 @@
                 <p class="mb-4 text-blue-100 font-extrabold"> {{ bijou.prix }} €</p>
               </div>
             </div>
+            </a>
             {% endif %}
           {% endfor %}
           </div>
         </div>
-      </a>
 
       <!-- Caroussel RANA  -->
         <div class="flex flex-col gap-y-2 mt-10">
@@ -319,7 +319,6 @@
         </div>
 
       <!-- Caroussel Colliers RANA-->
-      <a href="/produit">
         <div class="flex flex-col gap-y-2 mt-10">
           <p class="font-extrabold text-gris-300 text-sm">COLLIERS</p>
           <div
@@ -328,6 +327,7 @@
           >
           {% for bijou in bijouxRana %}
           {% if bijou.nom == 'Collier' %}
+          <a href="/produit/{{ bijou.id }}">
             <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
               <img
                 src="../images/images/photo4.jpeg"
@@ -341,14 +341,13 @@
                 <p class="mb-4 text-blue-100 font-extrabold">{{ bijou.prix }} €</p>
               </div>
             </div>
+            </a>
             {% endif %}
           {% endfor %}
           </div>
         </div>
-      </a>
 
       <!-- Caroussel PEARL  -->
-      <a href="/produit">
         <div class="flex flex-col gap-y-2 mt-10">
           <p id="pearl" class="font-extrabold text-blue-100 text-2xl">PEARL</p>
           <p class="font-extrabold text-gris-300 text-sm">BOUCLES D'OREILLES</p>
@@ -358,6 +357,7 @@
           >
           {% for bijou in bijouxPearl %}
             {% if bijou.nom == 'Boucles d\'oreilles' %}
+            <a href="/produit/{{ bijou.id }}">
             <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
               <img
                 src="../images/images/photo4.jpeg"
@@ -371,14 +371,13 @@
                 <p class="mb-4 text-blue-100 font-extrabold"> {{ bijou.prix }} €</p>
               </div>
             </div>
+            </a>
             {% endif %}
           {% endfor %}
           </div>
         </div>
-      </a>
 
       <!-- Caroussel Colliers PEARL-->
-      <a href="/produit">
         <div class="flex flex-col gap-y-2 mt-10">
           <p class="font-extrabold text-gris-300 text-sm">COLLIERS</p>
           <div
@@ -387,6 +386,7 @@
           >
           {% for bijou in bijouxPearl %}
           {% if bijou.nom == 'Collier' %}
+          <a href="/produit/{{ bijou.id }}">
             <div class="carousel-cell mr-4 rounded-xl bg-white w-[270px]">
               <img
                 src="../images/images/photo4.jpeg"
@@ -400,11 +400,11 @@
                 <p class="mb-4 text-blue-100 font-extrabold">{{ bijou.prix }} €</p>
               </div>
             </div>
+            </a>
             {% endif %}
           {% endfor %}
           </div>
         </div>
-      </a>
     
     </div>
     <div id="footer">{% include 'footer.html.twig' %}</div>
