@@ -47,7 +47,7 @@ class LoginController extends AbstractController
         $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
         /* Préparation de la requête */
-        $query = "INSERT INTO clients (nom, mot_de_passe, role) VALUES (:nom, :mot_de_passe, :role)";
+        $query = "INSERT INTO client (nom, mot_de_passe, role) VALUES (:nom, :mot_de_passe, :role)";
         $statement = $this->pdo->prepare($query);
 
         $statement->bindParam(':nom', $userName);
@@ -68,7 +68,7 @@ class LoginController extends AbstractController
         $password = $_POST['_password'];
 
         /* Préparation de la requête */
-        $query = "SELECT * FROM clients WHERE nom = :nom";
+        $query = "SELECT * FROM client WHERE nom = :nom";
         $statement = $this->pdo->prepare($query);
 
         $statement->bindParam(':nom', $userName);
@@ -97,7 +97,6 @@ class LoginController extends AbstractController
 
                 // Fetch the results
                 $listBijoux = $statement->fetchAll(PDO::FETCH_ASSOC);
-
 
                 $this->renderTemplate('board_admin.html.twig',['listBijoux' => $listBijoux]);
             }
