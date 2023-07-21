@@ -11,7 +11,8 @@ class BijouxController extends AbstractController
 {
     #[Authorize('Admin')]
     #[Route(path: '/boardAdmin', name: 'boardAdmin', httpMethod: "GET")]
-    public function boardAdmin($datas){
+    public function boardAdmin($datas)
+    {
 
         $this->renderTemplate('board_admin.html.twig', [$datas]);
     }
@@ -162,30 +163,30 @@ class BijouxController extends AbstractController
     }
 
     #[Authorize('Admin')]
-#[Route(path: '/deleteBijou', name: 'deleteBijou', httpMethod: "POST")]
-public function deleteBijou()
-{
-    $id = $_POST['jewelId'];
-    
-    /* Préparation de la requête */
-    $query = "DELETE FROM bijoux WHERE id = $id ";
-    $statement = $this->pdo->prepare($query);
+    #[Route(path: '/deleteBijou', name: 'deleteBijou', httpMethod: "POST")]
+    public function deleteBijou()
+    {
+        $id = $_POST['jewelId'];
 
-    $statement->execute();
+        /* Préparation de la requête */
+        $query = "DELETE FROM bijoux WHERE id = $id ";
+        $statement = $this->pdo->prepare($query);
 
-    $message = 'Le bijou a été supprimé avec succès';
+        $statement->execute();
 
-    /* Préparation de la requête */
-    $query = "SELECT * FROM bijoux";
-    $statement = $this->pdo->prepare($query);
+        $message = 'Le bijou a été supprimé avec succès';
 
-    $statement->execute();
+        /* Préparation de la requête */
+        $query = "SELECT * FROM bijoux";
+        $statement = $this->pdo->prepare($query);
 
-    // Fetch the results
-    $listBijoux = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $statement->execute();
 
-    $this->renderTemplate('board_admin.html.twig', ['message' => $message, 'listBijoux' => $listBijoux]);
-}
+        // Fetch the results
+        $listBijoux = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        $this->renderTemplate('board_admin.html.twig', ['message' => $message, 'listBijoux' => $listBijoux]);
+    }
 
 
     #[Route(path: '/recupererBijoux', name: 'recupererBijoux', httpMethod: "GET")]
@@ -231,7 +232,7 @@ public function deleteBijou()
         $couleurs = $statementCouleurs->fetchAll();
 
         // TODO Retourner la bonne view
-        $this->renderTemplate('.html.twig', ['couleurs' => $couleurs]);
+        $this->renderTemplate('Couleur.html.twig', ['couleurs' => $couleurs]);
     }
 
     /* Ajouter une commande */
